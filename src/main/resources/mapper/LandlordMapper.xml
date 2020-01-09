@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.temptation.dao.LandlordMapper">
+    <resultMap id="BaseResultMap" type="cn.temptation.domain.Landlord">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="land_lord" jdbcType="VARCHAR" property="landLord"/>
+        <result column="land_phone" jdbcType="VARCHAR" property="landPhone"/>
+        <result column="is_security" jdbcType="INTEGER" property="isSecurity"/>
+        <result column="land_id_card" jdbcType="VARCHAR" property="landIdCard"/>
+        <result column="gmt_create" jdbcType="DATE" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="DATE" property="gmtModified"/>
+        <result column="living_information_id" jdbcType="INTEGER" property="livingInformationId"/>
+        <result column="personal_id" jdbcType="INTEGER" property="personalId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, land_lord, land_phone, is_security, land_id_card, gmt_create, gmt_modified, living_information_id, 
+    personal_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from landlord
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from landlord
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="cn.temptation.domain.Landlord">
+    insert into landlord (id, land_lord, land_phone, 
+      is_security, land_id_card, gmt_create, 
+      gmt_modified, living_information_id, personal_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{landLord,jdbcType=VARCHAR}, #{landPhone,jdbcType=VARCHAR}, 
+      #{isSecurity,jdbcType=INTEGER}, #{landIdCard,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=DATE}, 
+      #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{personalId,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="cn.temptation.domain.Landlord">
+        insert into landlord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="landLord != null">
+                land_lord,
+            </if>
+            <if test="landPhone != null">
+                land_phone,
+            </if>
+            <if test="isSecurity != null">
+                is_security,
+            </if>
+            <if test="landIdCard != null">
+                land_id_card,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="livingInformationId != null">
+                living_information_id,
+            </if>
+            <if test="personalId != null">
+                personal_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="landLord != null">
+                #{landLord,jdbcType=VARCHAR},
+            </if>
+            <if test="landPhone != null">
+                #{landPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="isSecurity != null">
+                #{isSecurity,jdbcType=INTEGER},
+            </if>
+            <if test="landIdCard != null">
+                #{landIdCard,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=DATE},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=DATE},
+            </if>
+            <if test="livingInformationId != null">
+                #{livingInformationId,jdbcType=INTEGER},
+            </if>
+            <if test="personalId != null">
+                #{personalId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.Landlord">
+        update landlord
+        <set>
+            <if test="landLord != null">
+                land_lord = #{landLord,jdbcType=VARCHAR},
+            </if>
+            <if test="landPhone != null">
+                land_phone = #{landPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="isSecurity != null">
+                is_security = #{isSecurity,jdbcType=INTEGER},
+            </if>
+            <if test="landIdCard != null">
+                land_id_card = #{landIdCard,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=DATE},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=DATE},
+            </if>
+            <if test="livingInformationId != null">
+                living_information_id = #{livingInformationId,jdbcType=INTEGER},
+            </if>
+            <if test="personalId != null">
+                personal_id = #{personalId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.Landlord">
+    update landlord
+    set land_lord = #{landLord,jdbcType=VARCHAR},
+      land_phone = #{landPhone,jdbcType=VARCHAR},
+      is_security = #{isSecurity,jdbcType=INTEGER},
+      land_id_card = #{landIdCard,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=DATE},
+      gmt_modified = #{gmtModified,jdbcType=DATE},
+      living_information_id = #{livingInformationId,jdbcType=INTEGER},
+      personal_id = #{personalId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

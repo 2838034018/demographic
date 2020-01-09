@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.temptation.dao.SpouseInformationMapper">
+    <resultMap id="BaseResultMap" type="cn.temptation.domain.SpouseInformation">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="spouse_name" jdbcType="VARCHAR" property="spouseName"/>
+        <result column="spouse_num" jdbcType="VARCHAR" property="spouseNum"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="district" jdbcType="VARCHAR" property="district"/>
+        <result column="town" jdbcType="VARCHAR" property="town"/>
+        <result column="village" jdbcType="VARCHAR" property="village"/>
+        <result column="site" jdbcType="VARCHAR" property="site"/>
+        <result column="company_name" jdbcType="VARCHAR" property="companyName"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="personal_id" jdbcType="INTEGER" property="personalId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, spouse_name, spouse_num, province, city, district, town, village, site, company_name, 
+    phone, gmt_create, gmt_modified, personal_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from spouse_information
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spouse_information
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="cn.temptation.domain.SpouseInformation">
+    insert into spouse_information (id, spouse_name, spouse_num, 
+      province, city, district, 
+      town, village, site, 
+      company_name, phone, gmt_create, 
+      gmt_modified, personal_id)
+    values (#{id,jdbcType=INTEGER}, #{spouseName,jdbcType=VARCHAR}, #{spouseNum,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{town,jdbcType=VARCHAR}, #{village,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
+      #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="cn.temptation.domain.SpouseInformation">
+        insert into spouse_information
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="spouseName != null">
+                spouse_name,
+            </if>
+            <if test="spouseNum != null">
+                spouse_num,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="district != null">
+                district,
+            </if>
+            <if test="town != null">
+                town,
+            </if>
+            <if test="village != null">
+                village,
+            </if>
+            <if test="site != null">
+                site,
+            </if>
+            <if test="companyName != null">
+                company_name,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="personalId != null">
+                personal_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="spouseName != null">
+                #{spouseName,jdbcType=VARCHAR},
+            </if>
+            <if test="spouseNum != null">
+                #{spouseNum,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="town != null">
+                #{town,jdbcType=VARCHAR},
+            </if>
+            <if test="village != null">
+                #{village,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                #{personalId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.SpouseInformation">
+        update spouse_information
+        <set>
+            <if test="spouseName != null">
+                spouse_name = #{spouseName,jdbcType=VARCHAR},
+            </if>
+            <if test="spouseNum != null">
+                spouse_num = #{spouseNum,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                district = #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="town != null">
+                town = #{town,jdbcType=VARCHAR},
+            </if>
+            <if test="village != null">
+                village = #{village,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                site = #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                company_name = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                personal_id = #{personalId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.SpouseInformation">
+    update spouse_information
+    set spouse_name = #{spouseName,jdbcType=VARCHAR},
+      spouse_num = #{spouseNum,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      town = #{town,jdbcType=VARCHAR},
+      village = #{village,jdbcType=VARCHAR},
+      site = #{site,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      personal_id = #{personalId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

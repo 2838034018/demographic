@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.temptation.dao.EmploymentinfoMapper">
+    <resultMap id="BaseResultMap" type="cn.temptation.domain.Employmentinfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="flat_type" jdbcType="VARCHAR" property="flatType"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="steet" jdbcType="VARCHAR" property="steet"/>
+        <result column="community" jdbcType="VARCHAR" property="community"/>
+        <result column="lane" jdbcType="VARCHAR" property="lane"/>
+        <result column="house_num" jdbcType="VARCHAR" property="houseNum"/>
+        <result column="site" jdbcType="VARCHAR" property="site"/>
+        <result column="organization_code" jdbcType="VARCHAR" property="organizationCode"/>
+        <result column="legal_person" jdbcType="VARCHAR" property="legalPerson"/>
+        <result column="endowment_insurance" jdbcType="INTEGER" property="endowmentInsurance"/>
+        <result column="medical_insurance" jdbcType="INTEGER" property="medicalInsurance"/>
+        <result column="unemployment_insurance" jdbcType="INTEGER" property="unemploymentInsurance"/>
+        <result column="injury_insurance" jdbcType="INTEGER" property="injuryInsurance"/>
+        <result column="maternity_insurance" jdbcType="INTEGER" property="maternityInsurance"/>
+        <result column="social_security_num" jdbcType="VARCHAR" property="socialSecurityNum"/>
+        <result column="staff_num" jdbcType="VARCHAR" property="staffNum"/>
+        <result column="sectors" jdbcType="VARCHAR" property="sectors"/>
+        <result column="rank" jdbcType="VARCHAR" property="rank"/>
+        <result column="skill_level" jdbcType="VARCHAR" property="skillLevel"/>
+        <result column="profession" jdbcType="VARCHAR" property="profession"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="personal_id" jdbcType="INTEGER" property="personalId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, flat_type, city, steet, community, lane, house_num, site, organization_code, 
+    legal_person, endowment_insurance, medical_insurance, unemployment_insurance, injury_insurance, 
+    maternity_insurance, social_security_num, staff_num, sectors, rank, skill_level, 
+    profession, gmt_create, gmt_modified, personal_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from employmentinfo
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employmentinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="cn.temptation.domain.Employmentinfo">
+    insert into employmentinfo (id, flat_type, city, 
+      steet, community, lane, 
+      house_num, site, organization_code, 
+      legal_person, endowment_insurance, medical_insurance, 
+      unemployment_insurance, injury_insurance, 
+      maternity_insurance, social_security_num, 
+      staff_num, sectors, rank, 
+      skill_level, profession, gmt_create, 
+      gmt_modified, personal_id)
+    values (#{id,jdbcType=INTEGER}, #{flatType,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{steet,jdbcType=VARCHAR}, #{community,jdbcType=VARCHAR}, #{lane,jdbcType=VARCHAR}, 
+      #{houseNum,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, 
+      #{legalPerson,jdbcType=VARCHAR}, #{endowmentInsurance,jdbcType=INTEGER}, #{medicalInsurance,jdbcType=INTEGER}, 
+      #{unemploymentInsurance,jdbcType=INTEGER}, #{injuryInsurance,jdbcType=INTEGER}, 
+      #{maternityInsurance,jdbcType=INTEGER}, #{socialSecurityNum,jdbcType=VARCHAR}, 
+      #{staffNum,jdbcType=VARCHAR}, #{sectors,jdbcType=VARCHAR}, #{rank,jdbcType=VARCHAR}, 
+      #{skillLevel,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="cn.temptation.domain.Employmentinfo">
+        insert into employmentinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="flatType != null">
+                flat_type,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="steet != null">
+                steet,
+            </if>
+            <if test="community != null">
+                community,
+            </if>
+            <if test="lane != null">
+                lane,
+            </if>
+            <if test="houseNum != null">
+                house_num,
+            </if>
+            <if test="site != null">
+                site,
+            </if>
+            <if test="organizationCode != null">
+                organization_code,
+            </if>
+            <if test="legalPerson != null">
+                legal_person,
+            </if>
+            <if test="endowmentInsurance != null">
+                endowment_insurance,
+            </if>
+            <if test="medicalInsurance != null">
+                medical_insurance,
+            </if>
+            <if test="unemploymentInsurance != null">
+                unemployment_insurance,
+            </if>
+            <if test="injuryInsurance != null">
+                injury_insurance,
+            </if>
+            <if test="maternityInsurance != null">
+                maternity_insurance,
+            </if>
+            <if test="socialSecurityNum != null">
+                social_security_num,
+            </if>
+            <if test="staffNum != null">
+                staff_num,
+            </if>
+            <if test="sectors != null">
+                sectors,
+            </if>
+            <if test="rank != null">
+                rank,
+            </if>
+            <if test="skillLevel != null">
+                skill_level,
+            </if>
+            <if test="profession != null">
+                profession,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="personalId != null">
+                personal_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="flatType != null">
+                #{flatType,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="steet != null">
+                #{steet,jdbcType=VARCHAR},
+            </if>
+            <if test="community != null">
+                #{community,jdbcType=VARCHAR},
+            </if>
+            <if test="lane != null">
+                #{lane,jdbcType=VARCHAR},
+            </if>
+            <if test="houseNum != null">
+                #{houseNum,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationCode != null">
+                #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="legalPerson != null">
+                #{legalPerson,jdbcType=VARCHAR},
+            </if>
+            <if test="endowmentInsurance != null">
+                #{endowmentInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="medicalInsurance != null">
+                #{medicalInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="unemploymentInsurance != null">
+                #{unemploymentInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="injuryInsurance != null">
+                #{injuryInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="maternityInsurance != null">
+                #{maternityInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="socialSecurityNum != null">
+                #{socialSecurityNum,jdbcType=VARCHAR},
+            </if>
+            <if test="staffNum != null">
+                #{staffNum,jdbcType=VARCHAR},
+            </if>
+            <if test="sectors != null">
+                #{sectors,jdbcType=VARCHAR},
+            </if>
+            <if test="rank != null">
+                #{rank,jdbcType=VARCHAR},
+            </if>
+            <if test="skillLevel != null">
+                #{skillLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                #{personalId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.Employmentinfo">
+        update employmentinfo
+        <set>
+            <if test="flatType != null">
+                flat_type = #{flatType,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="steet != null">
+                steet = #{steet,jdbcType=VARCHAR},
+            </if>
+            <if test="community != null">
+                community = #{community,jdbcType=VARCHAR},
+            </if>
+            <if test="lane != null">
+                lane = #{lane,jdbcType=VARCHAR},
+            </if>
+            <if test="houseNum != null">
+                house_num = #{houseNum,jdbcType=VARCHAR},
+            </if>
+            <if test="site != null">
+                site = #{site,jdbcType=VARCHAR},
+            </if>
+            <if test="organizationCode != null">
+                organization_code = #{organizationCode,jdbcType=VARCHAR},
+            </if>
+            <if test="legalPerson != null">
+                legal_person = #{legalPerson,jdbcType=VARCHAR},
+            </if>
+            <if test="endowmentInsurance != null">
+                endowment_insurance = #{endowmentInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="medicalInsurance != null">
+                medical_insurance = #{medicalInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="unemploymentInsurance != null">
+                unemployment_insurance = #{unemploymentInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="injuryInsurance != null">
+                injury_insurance = #{injuryInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="maternityInsurance != null">
+                maternity_insurance = #{maternityInsurance,jdbcType=INTEGER},
+            </if>
+            <if test="socialSecurityNum != null">
+                social_security_num = #{socialSecurityNum,jdbcType=VARCHAR},
+            </if>
+            <if test="staffNum != null">
+                staff_num = #{staffNum,jdbcType=VARCHAR},
+            </if>
+            <if test="sectors != null">
+                sectors = #{sectors,jdbcType=VARCHAR},
+            </if>
+            <if test="rank != null">
+                rank = #{rank,jdbcType=VARCHAR},
+            </if>
+            <if test="skillLevel != null">
+                skill_level = #{skillLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                profession = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                personal_id = #{personalId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.Employmentinfo">
+    update employmentinfo
+    set flat_type = #{flatType,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      steet = #{steet,jdbcType=VARCHAR},
+      community = #{community,jdbcType=VARCHAR},
+      lane = #{lane,jdbcType=VARCHAR},
+      house_num = #{houseNum,jdbcType=VARCHAR},
+      site = #{site,jdbcType=VARCHAR},
+      organization_code = #{organizationCode,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      endowment_insurance = #{endowmentInsurance,jdbcType=INTEGER},
+      medical_insurance = #{medicalInsurance,jdbcType=INTEGER},
+      unemployment_insurance = #{unemploymentInsurance,jdbcType=INTEGER},
+      injury_insurance = #{injuryInsurance,jdbcType=INTEGER},
+      maternity_insurance = #{maternityInsurance,jdbcType=INTEGER},
+      social_security_num = #{socialSecurityNum,jdbcType=VARCHAR},
+      staff_num = #{staffNum,jdbcType=VARCHAR},
+      sectors = #{sectors,jdbcType=VARCHAR},
+      rank = #{rank,jdbcType=VARCHAR},
+      skill_level = #{skillLevel,jdbcType=VARCHAR},
+      profession = #{profession,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      personal_id = #{personalId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
