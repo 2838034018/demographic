@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.SpouseInformation;
+
+import com.ygjy.entity.SpouseInformation;
 
 public interface SpouseInformationMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Personal;
+
+import com.ygjy.entity.Personal;
 
 public interface PersonalMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.AgentMapper">
+<mapper namespace="com.ygjy.dao.AgentMapper">
     <resultMap id="BaseResultMap" type="cn.temptation.domain.Agent">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="agent_name" jdbcType="VARCHAR" property="agentName"/>
@@ -26,7 +26,7 @@
     delete from agent
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.Agent">
+    <insert id="insert" parameterType="com.ygjy.entity.Agent">
     insert into agent (id, agent_name, agent_phone, 
       is_security, agent_id_card, gmt_create, 
       gmt_modified, living_information_id, presonal_id
@@ -36,7 +36,7 @@
       #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{presonalId,jdbcType=INTEGER}
       )
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.Agent">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.Agent">
         insert into agent
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -97,7 +97,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.Agent">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Agent">
         update agent
         <set>
             <if test="agentName != null">
@@ -127,7 +127,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.Agent">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Agent">
     update agent
     set agent_name = #{agentName,jdbcType=VARCHAR},
       agent_phone = #{agentPhone,jdbcType=VARCHAR},

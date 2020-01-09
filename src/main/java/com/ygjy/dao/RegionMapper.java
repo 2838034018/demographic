@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Region;
+
+import com.ygjy.entity.Region;
 
 public interface RegionMapper {
     int deleteByPrimaryKey(String id);

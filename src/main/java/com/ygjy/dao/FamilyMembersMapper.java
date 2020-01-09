@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.FamilyMembers;
+
+import com.ygjy.entity.FamilyMembers;
 
 public interface FamilyMembersMapper {
     int deleteByPrimaryKey(Integer id);

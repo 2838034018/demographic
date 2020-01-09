@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.ChildrenNumber;
+
+import com.ygjy.entity.ChildrenNumber;
 
 public interface ChildrenNumberMapper {
     int deleteByPrimaryKey(Integer id);

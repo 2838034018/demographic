@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.SpouseInformationMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.SpouseInformation">
+<mapper namespace="com.ygjy.dao.SpouseInformationMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.SpouseInformation">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="spouse_name" jdbcType="VARCHAR" property="spouseName"/>
         <result column="spouse_num" jdbcType="VARCHAR" property="spouseNum"/>
@@ -31,7 +31,7 @@
     delete from spouse_information
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.SpouseInformation">
+    <insert id="insert" parameterType="com.ygjy.entity.SpouseInformation">
     insert into spouse_information (id, spouse_name, spouse_num, 
       province, city, district, 
       town, village, site, 
@@ -43,7 +43,7 @@
       #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
       #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.SpouseInformation">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.SpouseInformation">
         insert into spouse_information
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -134,7 +134,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.SpouseInformation">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.SpouseInformation">
         update spouse_information
         <set>
             <if test="spouseName != null">
@@ -179,7 +179,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.SpouseInformation">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.SpouseInformation">
     update spouse_information
     set spouse_name = #{spouseName,jdbcType=VARCHAR},
       spouse_num = #{spouseNum,jdbcType=VARCHAR},

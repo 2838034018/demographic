@@ -1,6 +1,6 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Landlord;
+import com.ygjy.entity.Landlord;
 
 public interface LandlordMapper {
     int deleteByPrimaryKey(Integer id);

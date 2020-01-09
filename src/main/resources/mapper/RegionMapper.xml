@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.RegionMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.Region">
+<mapper namespace="com.ygjy.dao.RegionMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.Region">
         <id column="id" jdbcType="VARCHAR" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
@@ -22,7 +22,7 @@
     delete from region
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.Region">
+    <insert id="insert" parameterType="com.ygjy.entity.Region">
     insert into region (id, name, parent_id, 
       compartment, classify, createdate
       )
@@ -30,7 +30,7 @@
       #{compartment,jdbcType=VARCHAR}, #{classify,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.Region">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.Region">
         insert into region
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -73,7 +73,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.Region">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Region">
         update region
         <set>
             <if test="name != null">
@@ -94,7 +94,7 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.Region">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Region">
     update region
     set name = #{name,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=VARCHAR},

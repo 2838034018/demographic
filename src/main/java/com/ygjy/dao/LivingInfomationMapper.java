@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.LivingInfomation;
+
+import com.ygjy.entity.LivingInfomation;
 
 public interface LivingInfomationMapper {
     int deleteByPrimaryKey(Integer idInfomation);

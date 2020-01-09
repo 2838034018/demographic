@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.DictionaryTable;
+
+import com.ygjy.entity.DictionaryTable;
 
 public interface DictionaryTableMapper {
     int deleteByPrimaryKey(Integer id);

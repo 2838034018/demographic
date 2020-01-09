@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.User">
+<mapper namespace="com.ygjy.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.User">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
@@ -29,7 +29,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.User">
+    <insert id="insert" parameterType="com.ygjy.entity.User">
     insert into user (id, phone, password, 
       company_name, city, district, 
       town, identity, status, 
@@ -41,7 +41,7 @@
       #{explain,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.User">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -120,7 +120,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.User">
         update user
         <set>
             <if test="phone != null">
@@ -159,7 +159,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.User">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.User">
     update user
     set phone = #{phone,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

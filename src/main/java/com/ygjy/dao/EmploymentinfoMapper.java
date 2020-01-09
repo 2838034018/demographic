@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Employmentinfo;
+
+import com.ygjy.entity.Employmentinfo;
 
 public interface EmploymentinfoMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,6 +1,6 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Agent;
+import com.ygjy.entity.Agent;
 
 public interface AgentMapper {
     int deleteByPrimaryKey(Integer id);

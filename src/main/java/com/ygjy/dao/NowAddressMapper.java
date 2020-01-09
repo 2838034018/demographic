@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.NowAddress;
+
+import com.ygjy.entity.NowAddress;
 
 public interface NowAddressMapper {
     int deleteByPrimaryKey(Integer id);

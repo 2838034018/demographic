@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.LivingInfomationMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.LivingInfomation">
+<mapper namespace="com.ygjy.dao.LivingInfomationMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.LivingInfomation">
         <id column="id_infomation" jdbcType="INTEGER" property="idInfomation"/>
         <result column="living_type" jdbcType="INTEGER" property="livingType"/>
         <result column="live_for" jdbcType="INTEGER" property="liveFor"/>
@@ -38,7 +38,7 @@
     delete from living_infomation
     where id_infomation = #{idInfomation,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.LivingInfomation">
+    <insert id="insert" parameterType="com.ygjy.entity.LivingInfomation">
     insert into living_infomation (id_infomation, living_type, live_for, 
       house_type, area, jie_ban, 
       com_mittee, street_road_alley, house_number, 
@@ -54,7 +54,7 @@
       #{usageHouse,jdbcType=INTEGER}, #{informationCollector,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{inputTime,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.LivingInfomation">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.LivingInfomation">
         insert into living_infomation
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="idInfomation != null">
@@ -181,7 +181,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.LivingInfomation">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.LivingInfomation">
         update living_infomation
         <set>
             <if test="livingType != null">
@@ -244,7 +244,7 @@
         </set>
         where id_infomation = #{idInfomation,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.LivingInfomation">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.LivingInfomation">
     update living_infomation
     set living_type = #{livingType,jdbcType=INTEGER},
       live_for = #{liveFor,jdbcType=INTEGER},

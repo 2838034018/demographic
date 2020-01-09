@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.User;
+
+import com.ygjy.entity.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

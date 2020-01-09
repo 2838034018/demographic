@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.NowAddressMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.NowAddress">
+<mapper namespace="com.ygjy.dao.NowAddressMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.NowAddress">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="province" jdbcType="VARCHAR" property="province"/>
         <result column="city" jdbcType="VARCHAR" property="city"/>
@@ -27,7 +27,7 @@
     delete from now_address
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.NowAddress">
+    <insert id="insert" parameterType="com.ygjy.entity.NowAddress">
     insert into now_address (id, province, city, 
       district, town, village, 
       house_number, create_time, modifie_time, 
@@ -37,7 +37,7 @@
       #{houseNumber,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{modifieTime,jdbcType=TIMESTAMP}, 
       #{personalId,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.NowAddress">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.NowAddress">
         insert into now_address
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -104,7 +104,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.NowAddress">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.NowAddress">
         update now_address
         <set>
             <if test="province != null">
@@ -137,7 +137,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.NowAddress">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.NowAddress">
     update now_address
     set province = #{province,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},

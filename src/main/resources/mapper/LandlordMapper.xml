@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.LandlordMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.Landlord">
+<mapper namespace="com.ygjy.dao.LandlordMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.Landlord">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="land_lord" jdbcType="VARCHAR" property="landLord"/>
         <result column="land_phone" jdbcType="VARCHAR" property="landPhone"/>
@@ -26,7 +26,7 @@
     delete from landlord
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.Landlord">
+    <insert id="insert" parameterType="com.ygjy.entity.Landlord">
     insert into landlord (id, land_lord, land_phone, 
       is_security, land_id_card, gmt_create, 
       gmt_modified, living_information_id, personal_id
@@ -36,7 +36,7 @@
       #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{personalId,jdbcType=INTEGER}
       )
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.Landlord">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.Landlord">
         insert into landlord
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -97,7 +97,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.Landlord">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Landlord">
         update landlord
         <set>
             <if test="landLord != null">
@@ -127,7 +127,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.Landlord">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Landlord">
     update landlord
     set land_lord = #{landLord,jdbcType=VARCHAR},
       land_phone = #{landPhone,jdbcType=VARCHAR},

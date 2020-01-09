@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.temptation.dao.FamilyMembersMapper">
-    <resultMap id="BaseResultMap" type="cn.temptation.domain.FamilyMembers">
+<mapper namespace="com.ygjy.dao.FamilyMembersMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.FamilyMembers">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="relation" jdbcType="VARCHAR" property="relation"/>
         <result column="id_number" jdbcType="VARCHAR" property="idNumber"/>
@@ -28,7 +28,7 @@
     delete from family_members
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.temptation.domain.FamilyMembers">
+    <insert id="insert" parameterType="com.ygjy.entity.FamilyMembers">
     insert into family_members (id, relation, id_number, 
       name, sex, birthday, 
       vaccination_certificate, study_locally, gmt_create, 
@@ -38,7 +38,7 @@
       #{vaccinationCertificate,jdbcType=INTEGER}, #{studyLocally,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, 
       #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="cn.temptation.domain.FamilyMembers">
+    <insert id="insertSelective" parameterType="com.ygjy.entity.FamilyMembers">
         insert into family_members
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -111,7 +111,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.temptation.domain.FamilyMembers">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.FamilyMembers">
         update family_members
         <set>
             <if test="relation != null">
@@ -147,7 +147,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.temptation.domain.FamilyMembers">
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.FamilyMembers">
     update family_members
     set relation = #{relation,jdbcType=VARCHAR},
       id_number = #{idNumber,jdbcType=VARCHAR},

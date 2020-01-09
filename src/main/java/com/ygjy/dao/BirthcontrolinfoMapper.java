@@ -1,6 +1,7 @@
 package com.ygjy.dao;
 
-import cn.temptation.domain.Birthcontrolinfo;
+
+import com.ygjy.entity.Birthcontrolinfo;
 
 public interface BirthcontrolinfoMapper {
     int deleteByPrimaryKey(Integer id);
