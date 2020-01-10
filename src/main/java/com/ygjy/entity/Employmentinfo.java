@@ -5,7 +5,11 @@ import java.util.Date;
 public class Employmentinfo {
     private Integer id;
 
+    private String entityName;
+
     private String flatType;
+
+    private String unitAddress;
 
     private String city;
 
@@ -22,6 +26,12 @@ public class Employmentinfo {
     private String organizationCode;
 
     private String legalPerson;
+
+    private String laborContract;
+
+    private String contactPhoneNumber;
+
+    private String ginsengIs;
 
     private Integer endowmentInsurance;
 
@@ -51,6 +61,8 @@ public class Employmentinfo {
 
     private Integer personalId;
 
+    private String unitNumber;
+
     public Integer getId() {
         return id;
     }
@@ -59,12 +71,28 @@ public class Employmentinfo {
         this.id = id;
     }
 
+    public String getEntityName() {
+        return entityName;
+    }
+
+    public void setEntityName(String entityName) {
+        this.entityName = entityName == null ? null : entityName.trim();
+    }
+
     public String getFlatType() {
         return flatType;
     }
 
     public void setFlatType(String flatType) {
         this.flatType = flatType == null ? null : flatType.trim();
+    }
+
+    public String getUnitAddress() {
+        return unitAddress;
+    }
+
+    public void setUnitAddress(String unitAddress) {
+        this.unitAddress = unitAddress == null ? null : unitAddress.trim();
     }
 
     public String getCity() {
@@ -129,6 +157,30 @@ public class Employmentinfo {
 
     public void setLegalPerson(String legalPerson) {
         this.legalPerson = legalPerson == null ? null : legalPerson.trim();
+    }
+
+    public String getLaborContract() {
+        return laborContract;
+    }
+
+    public void setLaborContract(String laborContract) {
+        this.laborContract = laborContract == null ? null : laborContract.trim();
+    }
+
+    public String getContactPhoneNumber() {
+        return contactPhoneNumber;
+    }
+
+    public void setContactPhoneNumber(String contactPhoneNumber) {
+        this.contactPhoneNumber = contactPhoneNumber == null ? null : contactPhoneNumber.trim();
+    }
+
+    public String getGinsengIs() {
+        return ginsengIs;
+    }
+
+    public void setGinsengIs(String ginsengIs) {
+        this.ginsengIs = ginsengIs == null ? null : ginsengIs.trim();
     }
 
     public Integer getEndowmentInsurance() {
@@ -241,5 +293,13 @@ public class Employmentinfo {
 
     public void setPersonalId(Integer personalId) {
         this.personalId = personalId;
+    }
+
+    public String getUnitNumber() {
+        return unitNumber;
+    }
+
+    public void setUnitNumber(String unitNumber) {
+        this.unitNumber = unitNumber == null ? null : unitNumber.trim();
     }
 }

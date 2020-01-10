@@ -5,23 +5,23 @@ import java.util.Date;
 public class NowAddress {
     private Integer id;
 
-    private String province;
+    private String nowAddressProvince;
 
-    private String city;
+    private String nowAddressCity;
 
-    private String district;
+    private String nowAddressDistrict;
 
-    private String town;
+    private String nowAddressTown;
 
-    private String village;
+    private String nowAddressVillage;
 
-    private Integer houseNumber;
+    private Integer nowAddressHouseNumber;
 
-    private Date createTime;
+    private Date nowAddressCreateTime;
 
-    private Date modifieTime;
+    private Date nowAddressModifieTime;
 
-    private Integer personalId;
+    private Integer nowAddressPersonalId;
 
     public Integer getId() {
         return id;
@@ -31,75 +31,75 @@ public class NowAddress {
         this.id = id;
     }
 
-    public String getProvince() {
-        return province;
+    public String getNowAddressProvince() {
+        return nowAddressProvince;
     }
 
-    public void setProvince(String province) {
-        this.province = province == null ? null : province.trim();
+    public void setNowAddressProvince(String nowAddressProvince) {
+        this.nowAddressProvince = nowAddressProvince == null ? null : nowAddressProvince.trim();
     }
 
-    public String getCity() {
-        return city;
+    public String getNowAddressCity() {
+        return nowAddressCity;
     }
 
-    public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
+    public void setNowAddressCity(String nowAddressCity) {
+        this.nowAddressCity = nowAddressCity == null ? null : nowAddressCity.trim();
     }
 
-    public String getDistrict() {
-        return district;
+    public String getNowAddressDistrict() {
+        return nowAddressDistrict;
     }
 
-    public void setDistrict(String district) {
-        this.district = district == null ? null : district.trim();
+    public void setNowAddressDistrict(String nowAddressDistrict) {
+        this.nowAddressDistrict = nowAddressDistrict == null ? null : nowAddressDistrict.trim();
     }
 
-    public String getTown() {
-        return town;
+    public String getNowAddressTown() {
+        return nowAddressTown;
     }
 
-    public void setTown(String town) {
-        this.town = town == null ? null : town.trim();
+    public void setNowAddressTown(String nowAddressTown) {
+        this.nowAddressTown = nowAddressTown == null ? null : nowAddressTown.trim();
     }
 
-    public String getVillage() {
-        return village;
+    public String getNowAddressVillage() {
+        return nowAddressVillage;
     }
 
-    public void setVillage(String village) {
-        this.village = village == null ? null : village.trim();
+    public void setNowAddressVillage(String nowAddressVillage) {
+        this.nowAddressVillage = nowAddressVillage == null ? null : nowAddressVillage.trim();
     }
 
-    public Integer getHouseNumber() {
-        return houseNumber;
+    public Integer getNowAddressHouseNumber() {
+        return nowAddressHouseNumber;
     }
 
-    public void setHouseNumber(Integer houseNumber) {
-        this.houseNumber = houseNumber;
+    public void setNowAddressHouseNumber(Integer nowAddressHouseNumber) {
+        this.nowAddressHouseNumber = nowAddressHouseNumber;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getNowAddressCreateTime() {
+        return nowAddressCreateTime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setNowAddressCreateTime(Date nowAddressCreateTime) {
+        this.nowAddressCreateTime = nowAddressCreateTime;
     }
 
-    public Date getModifieTime() {
-        return modifieTime;
+    public Date getNowAddressModifieTime() {
+        return nowAddressModifieTime;
     }
 
-    public void setModifieTime(Date modifieTime) {
-        this.modifieTime = modifieTime;
+    public void setNowAddressModifieTime(Date nowAddressModifieTime) {
+        this.nowAddressModifieTime = nowAddressModifieTime;
     }
 
-    public Integer getPersonalId() {
-        return personalId;
+    public Integer getNowAddressPersonalId() {
+        return nowAddressPersonalId;
     }
 
-    public void setPersonalId(Integer personalId) {
-        this.personalId = personalId;
+    public void setNowAddressPersonalId(Integer nowAddressPersonalId) {
+        this.nowAddressPersonalId = nowAddressPersonalId;
     }
 }

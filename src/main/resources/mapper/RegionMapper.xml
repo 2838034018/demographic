@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ygjy.dao.RegionMapper">
-    <resultMap id="BaseResultMap" type="com.ygjy.entity.Region">
-        <id column="id" jdbcType="VARCHAR" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
-        <result column="compartment" jdbcType="VARCHAR" property="compartment"/>
-        <result column="classify" jdbcType="VARCHAR" property="classify"/>
-        <result column="createdate" jdbcType="VARCHAR" property="createdate"/>
-    </resultMap>
-    <sql id="Base_Column_List">
+  <resultMap id="BaseResultMap" type="com.ygjy.entity.Region">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="compartment" jdbcType="VARCHAR" property="compartment" />
+    <result column="classify" jdbcType="VARCHAR" property="classify" />
+    <result column="createdate" jdbcType="VARCHAR" property="createdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
     id, name, parent_id, compartment, classify, createdate
   </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from region
-        where id = #{id,jdbcType=VARCHAR}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from region
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from region
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-    <insert id="insert" parameterType="com.ygjy.entity.Region">
+  <insert id="insert" parameterType="com.ygjy.entity.Region">
     insert into region (id, name, parent_id, 
       compartment, classify, createdate
       )
@@ -30,71 +30,71 @@
       #{compartment,jdbcType=VARCHAR}, #{classify,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="com.ygjy.entity.Region">
-        insert into region
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="name != null">
-                name,
-            </if>
-            <if test="parentId != null">
-                parent_id,
-            </if>
-            <if test="compartment != null">
-                compartment,
-            </if>
-            <if test="classify != null">
-                classify,
-            </if>
-            <if test="createdate != null">
-                createdate,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=VARCHAR},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="parentId != null">
-                #{parentId,jdbcType=VARCHAR},
-            </if>
-            <if test="compartment != null">
-                #{compartment,jdbcType=VARCHAR},
-            </if>
-            <if test="classify != null">
-                #{classify,jdbcType=VARCHAR},
-            </if>
-            <if test="createdate != null">
-                #{createdate,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Region">
-        update region
-        <set>
-            <if test="name != null">
-                name = #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="parentId != null">
-                parent_id = #{parentId,jdbcType=VARCHAR},
-            </if>
-            <if test="compartment != null">
-                compartment = #{compartment,jdbcType=VARCHAR},
-            </if>
-            <if test="classify != null">
-                classify = #{classify,jdbcType=VARCHAR},
-            </if>
-            <if test="createdate != null">
-                createdate = #{createdate,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where id = #{id,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Region">
+  <insert id="insertSelective" parameterType="com.ygjy.entity.Region">
+    insert into region
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="compartment != null">
+        compartment,
+      </if>
+      <if test="classify != null">
+        classify,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="compartment != null">
+        #{compartment,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Region">
+    update region
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="compartment != null">
+        compartment = #{compartment,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        classify = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createdate = #{createdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Region">
     update region
     set name = #{name,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=VARCHAR},

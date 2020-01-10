@@ -23,7 +23,7 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.ygjy.entity
 
-#·ÖÒ³ÅäÖÃ
+#åˆ†é¡µé…ç½®
 pagehelper:
   helper-dialect: mysql
   reasonable: true

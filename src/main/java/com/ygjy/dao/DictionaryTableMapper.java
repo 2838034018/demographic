@@ -1,6 +1,5 @@
 package com.ygjy.dao;
 
-
 import com.ygjy.entity.DictionaryTable;
 
 public interface DictionaryTableMapper {

@@ -11,6 +11,8 @@ public class User {
 
     private String companyName;
 
+    private String province;
+
     private String city;
 
     private String district;
@@ -57,6 +59,14 @@ public class User {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName == null ? null : companyName.trim();
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province == null ? null : province.trim();
     }
 
     public String getCity() {

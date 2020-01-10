@@ -43,6 +43,8 @@ public class Personal {
 
     private String cultrue;
 
+    private String politicsStatus;
+
     private String faith;
 
     private Long height;
@@ -227,6 +229,14 @@ public class Personal {
 
     public void setCultrue(String cultrue) {
         this.cultrue = cultrue == null ? null : cultrue.trim();
+    }
+
+    public String getPoliticsStatus() {
+        return politicsStatus;
+    }
+
+    public void setPoliticsStatus(String politicsStatus) {
+        this.politicsStatus = politicsStatus == null ? null : politicsStatus.trim();
     }
 
     public String getFaith() {

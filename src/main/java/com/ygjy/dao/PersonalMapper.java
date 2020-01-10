@@ -1,6 +1,5 @@
 package com.ygjy.dao;
 
-
 import com.ygjy.entity.Personal;
 
 public interface PersonalMapper {
