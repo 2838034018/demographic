@@ -1,4 +1,4 @@
-package com.ygjy.serviceimpl;
+package com.ygjy.serviceImpl;
 
 import com.ygjy.dao.AgentMapper;
 import com.ygjy.entity.Agent;
