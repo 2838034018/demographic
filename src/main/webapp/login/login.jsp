@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@page isELIgnored="false" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
 <head>
 
     <meta charset="utf-8">
@@ -23,8 +23,29 @@
     <script src="assets/js/scripts.js"></script>
     <script src="../boot/js/jquery.validate.min.js"></script>
     <script>
-
-
+        $(function () {
+            $.extend($.validator.messages, {
+                required: "<span style='color:red'>这是必填字段</span>",
+            });
+            $("#loginButtonId").click(function () {
+                var flag = $("#loginForm").valid();
+                if (flag) {
+                    $.ajax({
+                        url: "${pageContext.request.contextPath}/login",
+                        type: "post",
+                        data: $("#loginForm").serialize(),
+                        datatype: "json",
+                        success: function (data) {
+                            if (data.message == 'ok') {
+                                window.location.href = "${pageContext.request.contextPath}/aa.jsp"
+                            } else {
+                                $("#message").text(data.message)
+                            }
+                        }
+                    })
+                }
+            })
+        })
     </script>
 </head>
 
@@ -60,18 +81,18 @@
                         <form role="form" action="" method="post" class="login-form" id="loginForm">
                             <span id="msgDiv"></span>
                             <div class="form-group">
-                                <label class="sr-only" for="form-username">Username</label>
-                                <input required type="text" name="userName" placeholder="请输入用户名..."
+                                <label class="sr-only" for="form-username">账号</label>
+                                <input required type="text" name="phone" placeholder="请输入用户名..."
                                        class="form-username form-control" id="form-username">
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-password">Password</label>
+                                <label class="sr-only" for="form-password">密码</label>
                                 <input required type="password" name="password" placeholder="请输入密码..."
                                        class="form-password form-control" id="form-password">
                             </div>
                             <input type="button" style="width: 400px;border:1px solid #9d9d9d;border-radius: 4px;"
                                    id="loginButtonId" value="登录">
-                            <a href="" style="display:block;text-align: right">注册新帐户</a>
+                            <a href="register.jsp" style="display:block;text-align: right">注册新帐户</a>
                         </form>
                     </div>
                 </div>
