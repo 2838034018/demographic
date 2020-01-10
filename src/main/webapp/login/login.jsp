@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@page isELIgnored="false" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
 <head>
 
     <meta charset="utf-8">
@@ -92,7 +92,7 @@
                             </div>
                             <input type="button" style="width: 400px;border:1px solid #9d9d9d;border-radius: 4px;"
                                    id="loginButtonId" value="登录">
-                            <a href="" style="display:block;text-align: right">注册新帐户</a>
+                            <a href="register.jsp" style="display:block;text-align: right">注册新帐户</a>
                         </form>
                     </div>
                 </div>
