@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ygjy.dao.BirthcontrolinfoMapper">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.Birthcontrolinfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="spouse_peer" jdbcType="INTEGER" property="spousePeer"/>
+        <result column="marital_prove" jdbcType="INTEGER" property="maritalProve"/>
+        <result column="marital_card_number" jdbcType="VARCHAR" property="maritalCardNumber"/>
+        <result column="verification" jdbcType="INTEGER" property="verification"/>
+        <result column="children_number" jdbcType="VARCHAR" property="childrenNumber"/>
+        <result column="one_child_certificate" jdbcType="INTEGER" property="oneChildCertificate"/>
+        <result column="social_support_fee" jdbcType="INTEGER" property="socialSupportFee"/>
+        <result column="contraception_pregnancy" jdbcType="VARCHAR" property="contraceptionPregnancy"/>
+        <result column="measure_time" jdbcType="VARCHAR" property="measureTime"/>
+        <result column="the_fertility" jdbcType="INTEGER" property="theFertility"/>
+        <result column="birthdate" jdbcType="VARCHAR" property="birthdate"/>
+        <result column="policy" jdbcType="INTEGER" property="policy"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+        <result column="personal_id" jdbcType="INTEGER" property="personalId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, spouse_peer, marital_prove, marital_card_number, verification, children_number, 
+    one_child_certificate, social_support_fee, contraception_pregnancy, measure_time, 
+    the_fertility, birthdate, policy, gmt_create, gmt_modified, personal_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from birthcontrolinfo
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from birthcontrolinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.ygjy.entity.Birthcontrolinfo">
+    insert into birthcontrolinfo (id, spouse_peer, marital_prove, 
+      marital_card_number, verification, children_number, 
+      one_child_certificate, social_support_fee, 
+      contraception_pregnancy, measure_time, the_fertility, 
+      birthdate, policy, gmt_create, 
+      gmt_modified, personal_id)
+    values (#{id,jdbcType=INTEGER}, #{spousePeer,jdbcType=INTEGER}, #{maritalProve,jdbcType=INTEGER}, 
+      #{maritalCardNumber,jdbcType=VARCHAR}, #{verification,jdbcType=INTEGER}, #{childrenNumber,jdbcType=VARCHAR}, 
+      #{oneChildCertificate,jdbcType=INTEGER}, #{socialSupportFee,jdbcType=INTEGER}, 
+      #{contraceptionPregnancy,jdbcType=VARCHAR}, #{measureTime,jdbcType=VARCHAR}, #{theFertility,jdbcType=INTEGER}, 
+      #{birthdate,jdbcType=VARCHAR}, #{policy,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.ygjy.entity.Birthcontrolinfo">
+        insert into birthcontrolinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="spousePeer != null">
+                spouse_peer,
+            </if>
+            <if test="maritalProve != null">
+                marital_prove,
+            </if>
+            <if test="maritalCardNumber != null">
+                marital_card_number,
+            </if>
+            <if test="verification != null">
+                verification,
+            </if>
+            <if test="childrenNumber != null">
+                children_number,
+            </if>
+            <if test="oneChildCertificate != null">
+                one_child_certificate,
+            </if>
+            <if test="socialSupportFee != null">
+                social_support_fee,
+            </if>
+            <if test="contraceptionPregnancy != null">
+                contraception_pregnancy,
+            </if>
+            <if test="measureTime != null">
+                measure_time,
+            </if>
+            <if test="theFertility != null">
+                the_fertility,
+            </if>
+            <if test="birthdate != null">
+                birthdate,
+            </if>
+            <if test="policy != null">
+                policy,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="personalId != null">
+                personal_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="spousePeer != null">
+                #{spousePeer,jdbcType=INTEGER},
+            </if>
+            <if test="maritalProve != null">
+                #{maritalProve,jdbcType=INTEGER},
+            </if>
+            <if test="maritalCardNumber != null">
+                #{maritalCardNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="verification != null">
+                #{verification,jdbcType=INTEGER},
+            </if>
+            <if test="childrenNumber != null">
+                #{childrenNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="oneChildCertificate != null">
+                #{oneChildCertificate,jdbcType=INTEGER},
+            </if>
+            <if test="socialSupportFee != null">
+                #{socialSupportFee,jdbcType=INTEGER},
+            </if>
+            <if test="contraceptionPregnancy != null">
+                #{contraceptionPregnancy,jdbcType=VARCHAR},
+            </if>
+            <if test="measureTime != null">
+                #{measureTime,jdbcType=VARCHAR},
+            </if>
+            <if test="theFertility != null">
+                #{theFertility,jdbcType=INTEGER},
+            </if>
+            <if test="birthdate != null">
+                #{birthdate,jdbcType=VARCHAR},
+            </if>
+            <if test="policy != null">
+                #{policy,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                #{personalId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ygjy.entity.Birthcontrolinfo">
+        update birthcontrolinfo
+        <set>
+            <if test="spousePeer != null">
+                spouse_peer = #{spousePeer,jdbcType=INTEGER},
+            </if>
+            <if test="maritalProve != null">
+                marital_prove = #{maritalProve,jdbcType=INTEGER},
+            </if>
+            <if test="maritalCardNumber != null">
+                marital_card_number = #{maritalCardNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="verification != null">
+                verification = #{verification,jdbcType=INTEGER},
+            </if>
+            <if test="childrenNumber != null">
+                children_number = #{childrenNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="oneChildCertificate != null">
+                one_child_certificate = #{oneChildCertificate,jdbcType=INTEGER},
+            </if>
+            <if test="socialSupportFee != null">
+                social_support_fee = #{socialSupportFee,jdbcType=INTEGER},
+            </if>
+            <if test="contraceptionPregnancy != null">
+                contraception_pregnancy = #{contraceptionPregnancy,jdbcType=VARCHAR},
+            </if>
+            <if test="measureTime != null">
+                measure_time = #{measureTime,jdbcType=VARCHAR},
+            </if>
+            <if test="theFertility != null">
+                the_fertility = #{theFertility,jdbcType=INTEGER},
+            </if>
+            <if test="birthdate != null">
+                birthdate = #{birthdate,jdbcType=VARCHAR},
+            </if>
+            <if test="policy != null">
+                policy = #{policy,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="personalId != null">
+                personal_id = #{personalId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ygjy.entity.Birthcontrolinfo">
+    update birthcontrolinfo
+    set spouse_peer = #{spousePeer,jdbcType=INTEGER},
+      marital_prove = #{maritalProve,jdbcType=INTEGER},
+      marital_card_number = #{maritalCardNumber,jdbcType=VARCHAR},
+      verification = #{verification,jdbcType=INTEGER},
+      children_number = #{childrenNumber,jdbcType=VARCHAR},
+      one_child_certificate = #{oneChildCertificate,jdbcType=INTEGER},
+      social_support_fee = #{socialSupportFee,jdbcType=INTEGER},
+      contraception_pregnancy = #{contraceptionPregnancy,jdbcType=VARCHAR},
+      measure_time = #{measureTime,jdbcType=VARCHAR},
+      the_fertility = #{theFertility,jdbcType=INTEGER},
+      birthdate = #{birthdate,jdbcType=VARCHAR},
+      policy = #{policy,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      personal_id = #{personalId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
