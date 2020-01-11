@@ -185,4 +185,14 @@
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--用户登录-->
+  <select id="login" resultMap="BaseResultMap">
+        select phone,password from user where phone=#{phone}
+    </select>
+  <!--用户注册-->
+  <insert id="insertRegister">
+        insert into user (phone,password,company_name,city,district,town,`identity`,status,explain,gmt_create,gmt_modified)
+        value (#{phone},#{password},#{companyName},#{city},#{district},#{town},#{identity},#{status},#{explain},#{gmtCreate},#{gmtModified})
+    </insert>
 </mapper>

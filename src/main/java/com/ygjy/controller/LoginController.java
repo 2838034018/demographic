@@ -14,6 +14,7 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    //登录
     @RequestMapping("login")
     @ResponseBody
     public Map<String, Object> login(User user) {

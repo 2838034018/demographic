@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    //登录
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
     public Map<String, Object> login(User user) {
