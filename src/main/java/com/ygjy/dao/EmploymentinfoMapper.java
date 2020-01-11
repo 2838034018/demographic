@@ -1,7 +1,9 @@
 package com.ygjy.dao;
 
 import com.ygjy.entity.Employmentinfo;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface EmploymentinfoMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 @Transactional
 public class UserServiceImpl implements UserService {
     public static final Logger LOGGER = Logger.getLogger("UserServiceImpl.class");
+
     @Autowired
     private UserMapper userMapper;
 
