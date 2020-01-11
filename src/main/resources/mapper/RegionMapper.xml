@@ -103,4 +103,11 @@
       createdate = #{createdate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="findByProvince" resultMap="BaseResultMap">
+    select id,name from region WHERE parent_id=0
+  </select>
+  <select id="findByCity" resultMap="BaseResultMap">
+     select * from region where parent_id=#{id}
+  </select>
 </mapper>

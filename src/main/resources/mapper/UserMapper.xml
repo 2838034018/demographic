@@ -188,7 +188,7 @@
 
   <!--用户登录-->
   <select id="login" resultMap="BaseResultMap">
-        select phone,password from user where phone=#{phone}
+        select id,phone,password from user where phone=#{phone}
     </select>
   <!--用户注册-->
   <insert id="insertRegister">

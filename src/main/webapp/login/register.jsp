@@ -16,6 +16,7 @@
     <%--引入bootstrap的js--%>
     <script src="${pageContext.request.contextPath}/boot/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/boot/js/ajaxfileupload.js"></script>
+    <script src="${pageContext.request.contextPath}/js/four_linkage.js"></script>
     <style type="text/css">
         body {
             background: url("../img/1.jpg");
@@ -44,20 +45,20 @@
                     <td>所在地：</td>
                     <td>
                         <span>省</span>
-                        <select>
+                        <select name="name" id="shen">
                             <option value="0">请选择</option>
                         </select>
                         <span>市</span>
-                        <select>
+                        <select name="name" id="shi">
                             <option value="0">请选择</option>
                         </select>
                         <span>县</span>
-                        <select>
+                        <select name="name" id="xian">
                             <option value="0">请选择</option>
                         </select>
                         <span>乡/镇</span>
-                        <select>
-                            <option value=""></option>
+                        <select name="name" id="xiang">
+                            <option value="0">请选择</option>
                         </select>
                     </td>
                 </tr>

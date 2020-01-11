@@ -37,7 +37,7 @@
                         datatype: "json",
                         success: function (data) {
                             if (data.message == 'ok') {
-                                window.location.href = "${pageContext.request.contextPath}/aa.jsp"
+                                window.location.href = "${pageContext.request.contextPath}/login/register.jsp?id=${userId.id}"
                             } else {
                                 $("#message").text(data.message)
                             }

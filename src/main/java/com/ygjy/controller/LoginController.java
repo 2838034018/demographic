@@ -2,6 +2,7 @@ package com.ygjy.controller;
 
 import com.ygjy.entity.User;
 import com.ygjy.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import java.util.Map;
 
 @Controller
 public class LoginController {
+    public static final Logger LOGGER = Logger.getLogger("UserServiceImpl.class");
     @Autowired
     private UserService userService;
 

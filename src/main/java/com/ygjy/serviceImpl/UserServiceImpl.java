@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -19,6 +20,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private HttpSession session;
+
     //登录
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -28,6 +32,9 @@ public class UserServiceImpl implements UserService {
         try {
             User login = userMapper.login(user);
             if (login != null) {
+                Integer id = login.getId();
+                session.setAttribute("userId", id);
+                LOGGER.info("id=" + id);
                 if (password.equals(login.getPassword())) {
                     map.put("message", "ok");
                     LOGGER.info("UserServiceImpl----login登录成功");
