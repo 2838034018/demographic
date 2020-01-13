@@ -1,6 +1,8 @@
 package com.ygjy.entity;
 
+
 import java.util.Date;
+
 
 public class SpouseInformation {
     private Integer id;
@@ -31,6 +33,8 @@ public class SpouseInformation {
 
     private Integer personalId;
 
+    private Integer workingType;
+
     public Integer getId() {
         return id;
     }
@@ -44,7 +48,7 @@ public class SpouseInformation {
     }
 
     public void setSpouseName(String spouseName) {
-        this.spouseName = spouseName == null ? null : spouseName.trim();
+        this.spouseName = spouseName;
     }
 
     public String getSpouseNum() {
@@ -52,7 +56,7 @@ public class SpouseInformation {
     }
 
     public void setSpouseNum(String spouseNum) {
-        this.spouseNum = spouseNum == null ? null : spouseNum.trim();
+        this.spouseNum = spouseNum;
     }
 
     public String getProvince() {
@@ -60,7 +64,7 @@ public class SpouseInformation {
     }
 
     public void setProvince(String province) {
-        this.province = province == null ? null : province.trim();
+        this.province = province;
     }
 
     public String getCity() {
@@ -68,7 +72,7 @@ public class SpouseInformation {
     }
 
     public void setCity(String city) {
-        this.city = city == null ? null : city.trim();
+        this.city = city;
     }
 
     public String getDistrict() {
@@ -76,7 +80,7 @@ public class SpouseInformation {
     }
 
     public void setDistrict(String district) {
-        this.district = district == null ? null : district.trim();
+        this.district = district;
     }
 
     public String getTown() {
@@ -84,7 +88,7 @@ public class SpouseInformation {
     }
 
     public void setTown(String town) {
-        this.town = town == null ? null : town.trim();
+        this.town = town;
     }
 
     public String getVillage() {
@@ -92,7 +96,7 @@ public class SpouseInformation {
     }
 
     public void setVillage(String village) {
-        this.village = village == null ? null : village.trim();
+        this.village = village;
     }
 
     public String getSite() {
@@ -100,7 +104,7 @@ public class SpouseInformation {
     }
 
     public void setSite(String site) {
-        this.site = site == null ? null : site.trim();
+        this.site = site;
     }
 
     public String getCompanyName() {
@@ -108,7 +112,7 @@ public class SpouseInformation {
     }
 
     public void setCompanyName(String companyName) {
-        this.companyName = companyName == null ? null : companyName.trim();
+        this.companyName = companyName;
     }
 
     public String getPhone() {
@@ -116,7 +120,7 @@ public class SpouseInformation {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public Date getGmtCreate() {
@@ -141,5 +145,13 @@ public class SpouseInformation {
 
     public void setPersonalId(Integer personalId) {
         this.personalId = personalId;
+    }
+
+    public Integer getWorkingType() {
+        return workingType;
+    }
+
+    public void setWorkingType(Integer workingType) {
+        this.workingType = workingType;
     }
 }
