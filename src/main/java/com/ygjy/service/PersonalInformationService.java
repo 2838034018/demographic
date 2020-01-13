@@ -1,9 +1,15 @@
 package com.ygjy.service;
 
-import com.ygjy.entity.Agent;
+import com.ygjy.entity.FamilyMembers;
+import com.ygjy.entity.Region;
+import com.ygjy.entity.SpouseInformation;
+
+import java.util.List;
 
 public interface PersonalInformationService {
 
 
-    Agent queryDb(Integer id);
+    void addSpouseinfomation(SpouseInformation spouseInformation);
+
+    void addFamilyMenory(FamilyMembers familyMembers);
 }

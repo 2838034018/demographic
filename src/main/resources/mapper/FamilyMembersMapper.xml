@@ -161,4 +161,16 @@
       personal_id = #{personalId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="addFamilyMenory" parameterType="com.ygjy.entity.FamilyMembers">
+    insert into family_members (id, relation, id_number,
+      name, sex, birthday,
+      vaccination_certificate, study_locally, gmt_create,
+      gmt_modified, personal_id)
+    values (#{id,jdbcType=INTEGER}, #{relation,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR},
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP},
+      #{vaccinationCertificate,jdbcType=INTEGER}, #{studyLocally,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP},
+      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+
+  </insert>
 </mapper>

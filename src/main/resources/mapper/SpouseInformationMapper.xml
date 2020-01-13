@@ -11,6 +11,7 @@
     <result column="town" jdbcType="VARCHAR" property="town" />
     <result column="village" jdbcType="VARCHAR" property="village" />
     <result column="site" jdbcType="VARCHAR" property="site" />
+    <result column="working_type" jdbcType="INTEGER" property="workingType" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
@@ -34,14 +35,14 @@
   <insert id="insert" parameterType="com.ygjy.entity.SpouseInformation">
     insert into spouse_information (id, spouse_name, spouse_num, 
       province, city, district, 
-      town, village, site, 
+      town, village, site,working_type,
       company_name, phone, gmt_create, 
       gmt_modified, personal_id)
     values (#{id,jdbcType=INTEGER}, #{spouseName,jdbcType=VARCHAR}, #{spouseNum,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
-      #{town,jdbcType=VARCHAR}, #{village,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
-      #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+      #{town,jdbcType=VARCHAR}, #{village,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{workingType,jdbcType=INTEGER},
+      #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, now(),
+     now(), #{personalId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ygjy.entity.SpouseInformation">
     insert into spouse_information
