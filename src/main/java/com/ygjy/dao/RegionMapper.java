@@ -17,7 +17,11 @@ public interface RegionMapper {
 
     int updateByPrimaryKey(Region record);
 
-    List<Region> findByProvince();
+    List<Region> findByProvince();//查省
 
-    List<Region> findByCity(String id);
+    List<Region> findByCity(String superiormumber);//查市县乡
+
+    Region findByPr(String superiormumber);//根据id查省名
+
+    Region findByAl(String superiormumber);//根据id查市县乡名
 }

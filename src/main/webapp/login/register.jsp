@@ -22,55 +22,102 @@
             background: url("../img/1.jpg");
         }
     </style>
+    <script>
+        $(function () {
+            $("#register").click(function () {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/register",
+                    type: "post",
+                    data: $("#registerForm").serialize(),
+                    success: function (data) {
+                        alert("注册完成，等待审核")
+                        window.location.href = "${pageContext.request.contextPath}/login/login.jsp"
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
-<div class="row">
-    <div class="col-xs-6 col-md-4"></div>
-    <div class="col-xs-6 col-md-4">
-        <form role="form" action="" method="post" class="login-form" id="loginForm">
-            <table>
-                <tr>
-                    <td>手机号：</td>
-                    <td><input type="text" name="phone"></td>
-                </tr>
-                <tr>
-                    <td>密码：</td>
-                    <td><input type="text" name="password"></td>
-                </tr>
-                <tr>
-                    <td>单位名称：</td>
-                    <td><input type="text" name="companyName"></td>
-                </tr>
-                <tr>
-                    <td>所在地：</td>
-                    <td>
-                        <span>省</span>
-                        <select name="name" id="shen">
-                            <option value="0">请选择</option>
-                        </select>
-                        <span>市</span>
-                        <select name="name" id="shi">
-                            <option value="0">请选择</option>
-                        </select>
-                        <span>县</span>
-                        <select name="name" id="xian">
-                            <option value="0">请选择</option>
-                        </select>
-                        <span>乡/镇</span>
-                        <select name="name" id="xiang">
-                            <option value="0">请选择</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="button" value="立即注册"></td>
-                    <td></td>
-                </tr>
-            </table>
-        </form>
+<form style="margin-left:500px;margin-top:200px;" id="registerForm">
+    <div class="form-group">
+        <label stype="display:inline;">手机号：</label>
+        <input type="text" class="form-control" id="phone_text" name="phone" onblur="phone_id()"
+               style="display:inline;width:200px;"
+               autocomplete="off"/>
+        <span id="phone"></span>
     </div>
-    <div class="col-xs-6 col-md-4"></div>
-</div>
+    <div class="form-group">
+        <label style="display:inline;">密码：</label>
+        <input type="text" class="form-control" id="password_text" name="password" onblur="password_id()"
+               style="display:inline;width:200px;"
+               autocomplete="off"/>
+        <span id="password"></span>
+    </div>
+    <div class="form-group">
+        <label style="display:inline;">单位名称：</label>
+        <input type="text" class="form-control" name="companyName" style="display:inline;width:200px;"
+               autocomplete="off"/>
+        <span id="companyName"></span>
+    </div>
+    <div class="form-group">
+        <label style="display:inline;">所在地：</label>
+        <select name="province" id="shen" <%--class="form-control"--%>>
+            <option value="0">请选择</option>
+        </select>
+        <span>—</span>
+        <select name="city" id="shi" <%--class="form-control"--%>>
+            <option value="0">请选择</option>
+        </select>
+        <span>—</span>
+
+        <select name="district" id="xian" <%--class="form-control"--%>>
+            <option value="0">请选择</option>
+        </select>
+        <span>—</span>
+
+        <select name="town" id="xiang" <%--class="form-control"--%>>
+            <option value="0">请选择</option>
+        </select>
+    </div>
+    <input type="button" class="btn btn-primary" value="确认注册" id="register">
+</form>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="panel panel-default">
+        <div style="text-align: center" class="panel-body">
+            版权所有:公安局
+        </div>
+    </div>
+</nav>
 </body>
+<script>
+    function phone_id() {
+        var phone = $("#phone_text").val();
+        $("#phone_text").html("");
+        var phon = validatePhoneNumber(phone)
+        if (phone == "") {
+            $("#phone").html("不能为空").css("color", "red");
+        } else if (phon == false) {
+            $("#phone").html("请输入有效的手机号").css("color", "red");
+        } else {
+            $("#phone").html("√").css("color", "green");
+        }
+    }
+
+    function validatePhoneNumber(str) {
+        const reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
+        return reg.test(str)
+    }
+
+    function password_id() {
+        var password = $("#password_text").val();
+        $("#password_text").html("");
+        if (password == "") {
+            $("#password").html("不能为空").css("color", "red");
+        } else {
+            $("#password").html("√").css("color", "green");
+        }
+    }
+</script>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Login Form Template</title>
+    <title>流动人口服务管理系统</title>
     <!-- CSS -->
     <%--<link rel="icon" href="../img/favicon.ico">--%>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -37,7 +37,7 @@
                         datatype: "json",
                         success: function (data) {
                             if (data.message == 'ok') {
-                                window.location.href = "${pageContext.request.contextPath}/login/register.jsp?id=${userId.id}"
+                                window.location.href = "${pageContext.request.contextPath}/login/register.jsp?id=${userId}"
                             } else {
                                 $("#message").text(data.message)
                             }
@@ -101,7 +101,13 @@
     </div>
 
 </div>
-
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="panel panel-default">
+        <div style="text-align: center" class="panel-body">
+            版权所有:公安局
+        </div>
+    </div>
+</nav>
 
 </body>
 

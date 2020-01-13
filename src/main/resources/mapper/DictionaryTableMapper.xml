@@ -103,4 +103,13 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询居住方式-->
+  <select id="livingType" resultMap="BaseResultMap">
+      select * from dictionary_table where parent_id = 6
+  </select>
+  <!--查询居住事由-->
+  <select id="liveFor" resultMap="BaseResultMap">
+      select * from dictionary_table where parent_id = 7
+  </select>
 </mapper>

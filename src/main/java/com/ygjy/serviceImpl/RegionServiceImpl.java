@@ -24,7 +24,17 @@ public class RegionServiceImpl implements RegionService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public List<Region> findBy(String id) {
-        return regionMapper.findByCity(id);
+    public List<Region> findBy(String superiormumber) {
+        return regionMapper.findByCity(superiormumber);
+    }
+
+    @Override
+    public Region findByPr(String superiormumber) {
+        return regionMapper.findByPr(superiormumber);
+    }
+
+    @Override
+    public Region findByAl(String superiormumber) {
+        return regionMapper.findByAl(superiormumber);
     }
 }

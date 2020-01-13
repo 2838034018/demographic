@@ -15,7 +15,7 @@ $(function () {
         var shenId = $("#shen").val();
         $.ajax({
             url: "/demographic/dataTable/all",
-            data: {"id": shenId},
+            data: {"superiormumber": shenId},
             type: "post",
             dataType: "json",
             success: function (data) {
@@ -35,7 +35,7 @@ $(function () {
         var cityId = $("#shi").val();
         $.ajax({
             url: "/demographic/dataTable/all",
-            data: {"id": cityId},
+            data: {"superiormumber": cityId},
             type: "post",
             dataType: "json",
             success: function (data) {
@@ -55,7 +55,7 @@ $(function () {
         var xianId = $("#xian").val();
         $.ajax({
             url: "/demographic/dataTable/all",
-            data: {"id": xianId},
+            data: {"superiormumber": xianId},
             type: "post",
             dataType: "json",
             success: function (data) {

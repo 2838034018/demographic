@@ -188,11 +188,11 @@
 
   <!--用户登录-->
   <select id="login" resultMap="BaseResultMap">
-        select id,phone,password from user where phone=#{phone}
+        select id,phone,password from user where phone=#{phone} and `status` = '0'
     </select>
   <!--用户注册-->
-  <insert id="insertRegister">
-        insert into user (phone,password,company_name,city,district,town,`identity`,status,explain,gmt_create,gmt_modified)
-        value (#{phone},#{password},#{companyName},#{city},#{district},#{town},#{identity},#{status},#{explain},#{gmtCreate},#{gmtModified})
+    <insert id="insertRegister" parameterType="com.ygjy.entity.User">
+        insert into user (phone,password,company_name,province,city,district,town,`identity`,`status`,`explain`,gmt_create,gmt_modified)
+        value (#{phone},#{password},#{companyName},#{province},#{city},#{district},#{town},#{identity},#{status},#{explain},#{gmtCreate},#{gmtModified})
     </insert>
 </mapper>

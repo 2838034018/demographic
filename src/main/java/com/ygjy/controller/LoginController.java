@@ -23,4 +23,11 @@ public class LoginController {
         Map<String, Object> login = userService.login(user);
         return login;
     }
+
+    //注册
+    @RequestMapping("register")
+    public String insertRegister(User user) {
+        userService.insertRegister(user);
+        return "login/login";
+    }
 }

@@ -103,11 +103,20 @@
       createdate = #{createdate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-
+    <!--查省-->
   <select id="findByProvince" resultMap="BaseResultMap">
     select id,name from region WHERE parent_id=0
   </select>
+    <!--查市县乡-->
   <select id="findByCity" resultMap="BaseResultMap">
-     select * from region where parent_id=#{id}
+     select * from region where parent_id=#{superiormumber}
+  </select>
+    <!--根据id查省名-->
+    <select id="findByPr" resultMap="BaseResultMap">
+    select id,name from region WHERE id=#{superiormumber}
+  </select>
+    <!--根据id查市县乡名-->
+    <select id="findByAl" resultMap="BaseResultMap">
+     select * from region where id=#{superiormumber}
   </select>
 </mapper>
