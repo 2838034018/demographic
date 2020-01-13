@@ -9,6 +9,17 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
+
+  <!--查询行业类别-->
+  <select id="findSectors" resultMap="BaseResultMap">
+    SELECT nid,name FROM dictionary_table dt WHERE dt.parent_id=12
+  </select>
+
+  <!--回显避孕情况-->
+  <select id="contraceptionPregnancy" resultMap="BaseResultMap">
+    SELECT nid,name FROM dictionary_table dt WHERE dt.parent_id=15
+  </select>
+
   <sql id="Base_Column_List">
     id, nid, name, parent_id, create_time, update_time
   </sql>

@@ -1,8 +1,11 @@
 package com.ygjy.dao;
 
 import com.ygjy.entity.DictionaryTable;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+@Repository
 
 public interface DictionaryTableMapper {
     int deleteByPrimaryKey(Integer id);
@@ -22,4 +25,10 @@ public interface DictionaryTableMapper {
 
     //查询居住事由
     List<DictionaryTable> liveFor();
+
+    //查询行业类别
+    List<DictionaryTable> findSectors();
+
+    //回显避孕情况
+    List<DictionaryTable> contraceptionPregnancy();
 }

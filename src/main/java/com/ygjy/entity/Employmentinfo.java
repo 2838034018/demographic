@@ -63,6 +63,16 @@ public class Employmentinfo {
 
     private String unitNumber;
 
+    public String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -301,5 +311,42 @@ public class Employmentinfo {
 
     public void setUnitNumber(String unitNumber) {
         this.unitNumber = unitNumber == null ? null : unitNumber.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Employmentinfo{" +
+                "id=" + id +
+                ", entityName='" + entityName + '\'' +
+                ", flatType='" + flatType + '\'' +
+                ", unitAddress='" + unitAddress + '\'' +
+                ", city='" + city + '\'' +
+                ", steet='" + steet + '\'' +
+                ", community='" + community + '\'' +
+                ", lane='" + lane + '\'' +
+                ", houseNum='" + houseNum + '\'' +
+                ", site='" + site + '\'' +
+                ", organizationCode='" + organizationCode + '\'' +
+                ", legalPerson='" + legalPerson + '\'' +
+                ", laborContract='" + laborContract + '\'' +
+                ", contactPhoneNumber='" + contactPhoneNumber + '\'' +
+                ", ginsengIs='" + ginsengIs + '\'' +
+                ", endowmentInsurance=" + endowmentInsurance +
+                ", medicalInsurance=" + medicalInsurance +
+                ", unemploymentInsurance=" + unemploymentInsurance +
+                ", injuryInsurance=" + injuryInsurance +
+                ", maternityInsurance=" + maternityInsurance +
+                ", socialSecurityNum='" + socialSecurityNum + '\'' +
+                ", staffNum='" + staffNum + '\'' +
+                ", sectors='" + sectors + '\'' +
+                ", rank='" + rank + '\'' +
+                ", skillLevel='" + skillLevel + '\'' +
+                ", profession='" + profession + '\'' +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", personalId=" + personalId +
+                ", unitNumber='" + unitNumber + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }
