@@ -21,4 +21,7 @@ public interface DictionaryTableMapper {
 
     //查询行业类别
     List<DictionaryTable> findSectors();
+
+    //回显避孕情况
+    List<DictionaryTable> contraceptionPregnancy();
 }

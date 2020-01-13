@@ -15,6 +15,11 @@
     SELECT nid,name FROM dictionary_table dt WHERE dt.parent_id=12
   </select>
 
+  <!--回显避孕情况-->
+  <select id="contraceptionPregnancy" resultMap="BaseResultMap">
+    SELECT nid,name FROM dictionary_table dt WHERE dt.parent_id=15
+  </select>
+
   <sql id="Base_Column_List">
     id, nid, name, parent_id, create_time, update_time
   </sql>

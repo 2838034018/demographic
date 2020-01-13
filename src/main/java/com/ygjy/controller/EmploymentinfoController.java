@@ -1,15 +1,19 @@
 package com.ygjy.controller;
 
 
+import com.ygjy.entity.Birthcontrolinfo;
 import com.ygjy.entity.DictionaryTable;
 import com.ygjy.entity.Employmentinfo;
 import com.ygjy.service.EmploymentinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 @Controller
@@ -22,34 +26,37 @@ public class EmploymentinfoController {
 
     //查询行业类别
     @RequestMapping("employmentinfo")
-    public String  Employmentinfo(ModelMap map){
+    @ResponseBody
+    public  List<DictionaryTable>  Employmentinfo(){
 
-        try {
             List<DictionaryTable> sectors=employmentinfoService.findSectors();
-            if(sectors.size() >0){
-                LOGGER.info("Employmentinfo---查询行业成功");
-                map.put("sectors",sectors);
-            }else {
-                LOGGER.info("Employmentinfo---查询行业失败");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return  "login/employmentinfo";
+            return  sectors;
     }
 
     //添加就业信息
-    @RequestMapping("addEmploymentinfo")
-    public void addEmploymentinfo(Employmentinfo employmentinfo,ModelMap map){
-        System.out.println(employmentinfo.toString());
-        employmentinfoService.addEmploymentinfo(employmentinfo,map);
+    @RequestMapping(value = "addEmploymentinfo",method = RequestMethod.POST)
+    @ResponseBody
+    public Boolean addEmploymentinfo(Employmentinfo employmentinfo){
+        int i=employmentinfoService.addEmploymentinfo(employmentinfo);
+        Map map=new HashMap();
+        if(i==1){
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    //回显怀孕避孕情况
+    //怀孕避孕情况
     @RequestMapping("contraceptionPregnancy")
-    public String contraceptionPregnancy(ModelMap map){
+    @ResponseBody
+    public List<DictionaryTable> contraceptionPregnancy(){
         List<DictionaryTable> contraceptionPregnancy=employmentinfoService.contraceptionPregnancy();
-        return  "login/birthcontrolinfo";
+        return  contraceptionPregnancy;
     }
 
+    //保存计生信息
+    @RequestMapping("birthcontrolinfo")
+    public void  birthcontrolinfo (Birthcontrolinfo birthcontrolinfo){
+        employmentinfoService.birthcontrolinfo(birthcontrolinfo);
+    }
 }

@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap Login Form Template</title>
-    <!-- CSS -->
-    <%--<link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico">--%>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -25,43 +23,18 @@
     <script src="assets/js/jquery.backstretch.min.js"></script>
     <script src="assets/js/scripts.js"></script>
     <script src="${pageContext.request.contextPath}/boot/js/jquery.validate.min.js"></script>
-
-
-
-    <script >
-        //判断单选是否选中
-        $(function () {
-            //触发保存按钮判断是否选中
-            $("#submit").click(function(){
-                var flatType=$('input:radio[name="flatType"]:checked').val();
-                var laborContract= $('input:radio[name="laborContract"]:checked').val();
-                var rank= $('input:radio[name="rank"]:checked').val();
-                var skillLevel= $('input:radio[name="skillLevel"]:checked').val();
-
-                //保险情况  --复选框
-
-                if(flatType==null  ||  laborContract==null  || rank==null ||skillLevel==null  ){
-                    alert("要选中欧!");
-                    return false;
-                }
-                $("#subForm").submit;
-            });
-        });
-
-        function birthcontrolinfo() {
-            window.location.href("/demographic/");
-        }
-
-    </script>
+    <script src="assets/js/four_linkage.js"></script>
+    <script src="assets/js/employmentinfo.js"></script>
 </head>
 <body>
 
 
-<form   class="text-left" id="subForm" action="/demographic/addEmploymentinfo">
+<form   class="text-left" id="subForm" method="post">
 
     <div class="form-group">
         <label for="e_entityName">用工单位名称：</label>
         <input type="text"  id="e_entityName" name="entityName">
+        <label id="error1"></label>
     </div>
 
     <div class="form-group">
@@ -80,10 +53,18 @@
             <table class="table table-bordered" border="1" cellpadding="1" cellspacing="1" width="80%">
                 <tr class="active">
                     <td class="active">
-                        <input type="text" name="city">（市县区）
-                        <input type="text" name="steet">街办
-                        <input type="text" name="community">社区、居（村）委会
-                        <input type="text" name="lane">（街路巷）
+                        <select name="city" id="shen">
+                            <option  value="0">请选择</option>
+                        </select>省
+                        <select name="steet" id="shi">
+                            <option  value="0">请选择</option>
+                        </select>市
+                        <select name="community" id="xian">
+                            <option  value="0">请选择</option>
+                        </select>县
+                        <select name="lane" id="xiang">
+                            <option  value="0">请选择</option>
+                        </select>区
                         <input type="text" name="houseNum">门楼牌号
                         <input type="text" name="site">门楼详址
                     </td>
@@ -95,9 +76,11 @@
     <div class="form-group">
         <label for="e_organizationCode">组织机构代码：</label>
         <input type="text" id="e_organizationCode" name="organizationCode">
+        <label id="error3"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_legalPerson">法人代表</label>
         <input type="text" id="e_legalPerson" name="legalPerson">
+        <label id="error4"></label>
     </div>
     <div class="form-group">
         <label for="e_laborContract">劳动合同：</label>
@@ -113,6 +96,7 @@
     <div class="form-group">
         <label for="e_contactPhoneNumber">联系电话：</label>
         <input type="text" id="e_contactPhoneNumber" name="contactPhoneNumber">
+        <label id="error2" ></label>
     </div>
     <div class="form-group">
         <label for="e_ginsengIs">参保情况：</label>
@@ -129,20 +113,20 @@
     <div class="form-group">
         <label for="e_socialSecurityNum">单位社保号:</label>
         <input type="text" id="e_socialSecurityNum">
+        <label id="error5"></label>
     </div>
     <div class="form-group">
         <label for="e_unitNumber">单位编号:</label>
         <input type="text" id="e_unitNumber" name="unitNumber">
+        <label id="error6"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_staffNum">用工人数:</label>
         <input type="text" id="e_staffNum" name="staffNum">
+        <label id="error7"></label>
     </div>
     <div class="form-group">
         <label for="e_sectors">行业类别：</label>
-        <c:forEach var="sectors" items="${sectors}">
-            <input type="radio" name="${sectors.nid}">${sectors.name}
-        </c:forEach>
-        <input type="hidden" id="e_sectors">
+        <label  class="-inline" id="e_sectors"></label>
     </div>
     <div class="form-group">
         <label for="e_rank">职称：</label>
@@ -169,10 +153,11 @@
     <div class="form-group">
         <label for="e_profession">职业：</label>
         <input type="text" id="e_profession"  name="profession">
+        <label id="error8"></label>
     </div>
 
 
-    <button   class="btn btn-default" id="submit">保存</button>
-    <button  class="btn btn-default" function="birthcontrolinfo()">下一项</button>
+    <button   class="btn btn-default" onclick="sub()">保存</button>
+    <button  type="submit" class="btn btn-default" onclick="nextJs()">下一项</button>
 </form>
 </body>

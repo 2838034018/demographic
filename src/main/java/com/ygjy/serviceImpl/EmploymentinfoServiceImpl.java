@@ -1,13 +1,14 @@
 package com.ygjy.serviceImpl;
 
+import com.ygjy.dao.BirthcontrolinfoMapper;
 import com.ygjy.dao.DictionaryTableMapper;
 import com.ygjy.dao.EmploymentinfoMapper;
+import com.ygjy.entity.Birthcontrolinfo;
 import com.ygjy.entity.DictionaryTable;
 import com.ygjy.entity.Employmentinfo;
 import com.ygjy.service.EmploymentinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -25,6 +26,10 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
     @Autowired
     private EmploymentinfoMapper employmentinfoMapper;
 
+
+    //计生表
+    private BirthcontrolinfoMapper birthcontrolinfoMapper;
+
     //查询行业类别
     @Override
     public List<DictionaryTable> findSectors() {
@@ -33,18 +38,24 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
 
     //添加就业信息
     @Override
-    public void addEmploymentinfo(Employmentinfo employmentinfo, ModelMap map) {
-        try {
-            int i=employmentinfoMapper.insert(employmentinfo);
-            if(i==1){
-                map.put("message","保存成功");
-                LOGGER.info("addEmploymentinfo  --------保存成功");
-            }else {
-                map.put("message","保存失败");
-                LOGGER.info("addEmploymentinfo  --------保存失败");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public int addEmploymentinfo(Employmentinfo employmentinfo) {
+
+        int i=employmentinfoMapper.insert(employmentinfo);
+
+        return i;
+    }
+
+
+
+
+    @Override
+    public List<DictionaryTable> contraceptionPregnancy() {
+        return dictionaryTableMapper.contraceptionPregnancy();
+    }
+
+    //添加计生信息
+    @Override
+    public void birthcontrolinfo(Birthcontrolinfo birthcontrolinfo) {
+        birthcontrolinfoMapper.insert(birthcontrolinfo);
     }
 }
