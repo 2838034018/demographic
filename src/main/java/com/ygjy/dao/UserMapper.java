@@ -14,4 +14,10 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    //用户登录
+    User login(User user);
+
+    //用户注册
+    void insertRegister(User user);
 }
