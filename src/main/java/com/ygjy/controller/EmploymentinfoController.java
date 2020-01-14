@@ -1,5 +1,9 @@
 package com.ygjy.controller;
-
+/**
+ *  @author: wangyongxin
+ *  @Date: 2020/1/11 15:46
+ *  @Description:
+ */ 
 
 import com.ygjy.entity.Birthcontrolinfo;
 import com.ygjy.entity.ChildrenNumber;
@@ -19,11 +23,19 @@ import java.util.logging.Logger;
 public class EmploymentinfoController {
 
     public static final Logger LOGGER = Logger.getLogger("EmploymentinfoController.class");
+
     //就业信息
     @Autowired
     private EmploymentinfoService employmentinfoService;
 
-    //查询行业类别
+    /**
+    * @Description  查询行业类别
+    * @Author  wangyongxin
+    * @Date   2020/1/11 15:46
+    * @Param
+    * @Return
+    * @Exception
+    */
     @RequestMapping("employmentinfo")
     @ResponseBody
     public  List<DictionaryTable>  Employmentinfo(){
@@ -32,7 +44,14 @@ public class EmploymentinfoController {
             return  sectors;
     }
 
-    //添加就业信息
+    /**
+    * @Description  添加就业信息
+    * @Author  wangyongxin
+    * @Date   2020/1/11 15:47
+    * @Param
+    * @Return
+    * @Exception
+    */
     @RequestMapping(value = "addEmploymentinfo",method = RequestMethod.POST)
     @ResponseBody
     public Boolean addEmploymentinfo(Employmentinfo employmentinfo){
@@ -44,7 +63,15 @@ public class EmploymentinfoController {
         }
     }
 
-    //怀孕避孕情况
+    /**
+    * @Description  怀孕避孕情况
+    * @Author  wangyongxin
+    * @Date   2020/1/14 15:47
+    * @Param
+    * @Return
+    * @Exception
+    *
+    */
     @RequestMapping("contraceptionPregnancy")
     @ResponseBody
     public List<DictionaryTable> contraceptionPregnancy(){
@@ -52,20 +79,37 @@ public class EmploymentinfoController {
         return  contraceptionPregnancy;
     }
 
-    //保存计生信息
+    /**
+    * @Description  保存计生信息
+    * @Author  wangyongxin
+    * @Date   2020/1/14 15:47
+    * @Param
+    * @Return
+    * @Exception
+    *
+    */
     @RequestMapping("birthcontrolinfo")
     @ResponseBody
     public boolean  birthcontrolinfo (Birthcontrolinfo birthcontrolinfo, ChildrenNumber childrenNumber){
-        //添加计生基本信息
-        int i=employmentinfoService.birthcontrolinfo(birthcontrolinfo);
-        //添加生育子女数信息
-        childrenNumber.setBirthcontrolinfoId(birthcontrolinfo.getId());
-        int j=employmentinfoService.childrenNumbers(childrenNumber);
 
-        if(i==1 && j==1){
-            return  true;
-        }else{
+        try {
+            //添加计生基本信息
+            int i=employmentinfoService.birthcontrolinfo(birthcontrolinfo);
+            //添加生育子女数信息
+            childrenNumber.setBirthcontrolinfoId(birthcontrolinfo.getId());
+            int j=employmentinfoService.childrenNumbers(childrenNumber);
+
+            if(i==1 && j==1){
+                LOGGER.info("计生信息添加成功！");
+                return  true;
+            }else{
+                LOGGER.info("计生信息添加失败~");
+                return  false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
             return  false;
         }
+
     }
 }

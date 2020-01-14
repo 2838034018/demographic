@@ -34,6 +34,7 @@
     delete from birthcontrolinfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
     <insert id="insert" parameterType="com.ygjy.entity.Birthcontrolinfo" keyProperty="id" useGeneratedKeys="true">
     insert into birthcontrolinfo (id, spouse_peer, marital_prove, 
       marital_card_number, verification, children_number, 

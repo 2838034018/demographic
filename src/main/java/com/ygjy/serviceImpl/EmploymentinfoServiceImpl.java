@@ -1,5 +1,9 @@
 package com.ygjy.serviceImpl;
-
+/**
+ *  @author: wangyongxin
+ *  @Date: 2020/1/11 15:48
+ *  @Description:
+ */ 
 import com.ygjy.dao.BirthcontrolinfoMapper;
 import com.ygjy.dao.ChildrenNumberMapper;
 import com.ygjy.dao.DictionaryTableMapper;
@@ -32,7 +36,7 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
     @Autowired
     private BirthcontrolinfoMapper birthcontrolinfoMapper;
 
-    //计生子女数
+    //计生子女数   Birthcontrolinfo Employmentinfo
     @Autowired
     private ChildrenNumberMapper childrenNumberMapper;
 

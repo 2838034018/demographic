@@ -1,6 +1,7 @@
 var ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false;
 
 function sub(){
+
     $("input").trigger("blur");
     if(ok1==true&&ok2==true&&ok3==true&&ok4==true&&ok5==true&&ok6==true&&ok7==true&&ok8==true&&ok9==true){
         var radioName = new Array();
