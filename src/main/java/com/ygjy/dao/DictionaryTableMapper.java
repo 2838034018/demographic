@@ -7,7 +7,7 @@ import java.util.List;
 
 @Repository
 
-public interface DictionaryTableMapper {
+public interface    DictionaryTableMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(DictionaryTable record);
@@ -31,4 +31,12 @@ public interface DictionaryTableMapper {
 
     //回显避孕情况
     List<DictionaryTable> contraceptionPregnancy();
+    /**
+     * @Author yuyang
+     * @Description //根据 parentId获取字典表集合
+     * @Date 11:13 2020/1/14
+     * @param parentId
+     * @return java.util.List<com.ygjy.entity.DictionaryTable>
+     **/
+    List<DictionaryTable> getDictionaryTableList(String parentId);
 }
