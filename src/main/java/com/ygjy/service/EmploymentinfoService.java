@@ -1,6 +1,7 @@
 package com.ygjy.service;
 
 import com.ygjy.entity.Birthcontrolinfo;
+import com.ygjy.entity.ChildrenNumber;
 import com.ygjy.entity.DictionaryTable;
 import com.ygjy.entity.Employmentinfo;
 
@@ -17,5 +18,9 @@ public interface EmploymentinfoService {
     //回显怀孕避孕情况
     List<DictionaryTable> contraceptionPregnancy();
 
-    void birthcontrolinfo(Birthcontrolinfo birthcontrolinfo);
+    //添加计生数信息
+    int birthcontrolinfo(Birthcontrolinfo birthcontrolinfo);
+
+    //添加生育子女数信息
+    int childrenNumbers(ChildrenNumber childrenNumber);
 }

@@ -1,7 +1,9 @@
 package com.ygjy.dao;
 
 import com.ygjy.entity.ChildrenNumber;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ChildrenNumberMapper {
     int deleteByPrimaryKey(Integer id);
 

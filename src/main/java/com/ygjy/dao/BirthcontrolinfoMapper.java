@@ -1,7 +1,9 @@
 package com.ygjy.dao;
 
 import com.ygjy.entity.Birthcontrolinfo;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BirthcontrolinfoMapper {
     int deleteByPrimaryKey(Integer id);
 

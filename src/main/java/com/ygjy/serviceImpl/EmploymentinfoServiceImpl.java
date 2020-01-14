@@ -1,9 +1,11 @@
 package com.ygjy.serviceImpl;
 
 import com.ygjy.dao.BirthcontrolinfoMapper;
+import com.ygjy.dao.ChildrenNumberMapper;
 import com.ygjy.dao.DictionaryTableMapper;
 import com.ygjy.dao.EmploymentinfoMapper;
 import com.ygjy.entity.Birthcontrolinfo;
+import com.ygjy.entity.ChildrenNumber;
 import com.ygjy.entity.DictionaryTable;
 import com.ygjy.entity.Employmentinfo;
 import com.ygjy.service.EmploymentinfoService;
@@ -26,9 +28,19 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
     @Autowired
     private EmploymentinfoMapper employmentinfoMapper;
 
-
     //计生表
+    @Autowired
     private BirthcontrolinfoMapper birthcontrolinfoMapper;
+
+    //计生子女数
+    @Autowired
+    private ChildrenNumberMapper childrenNumberMapper;
+
+    @Override
+    public int childrenNumbers(ChildrenNumber childrenNumber) {
+        int i=childrenNumberMapper.insert(childrenNumber);
+        return i;
+    }
 
     //查询行业类别
     @Override
@@ -46,8 +58,6 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
     }
 
 
-
-
     @Override
     public List<DictionaryTable> contraceptionPregnancy() {
         return dictionaryTableMapper.contraceptionPregnancy();
@@ -55,7 +65,8 @@ public class EmploymentinfoServiceImpl implements EmploymentinfoService {
 
     //添加计生信息
     @Override
-    public void birthcontrolinfo(Birthcontrolinfo birthcontrolinfo) {
+    public int birthcontrolinfo(Birthcontrolinfo birthcontrolinfo) {
         birthcontrolinfoMapper.insert(birthcontrolinfo);
+        return 0;
     }
 }

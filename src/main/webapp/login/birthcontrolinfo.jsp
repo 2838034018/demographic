@@ -23,29 +23,8 @@
       <script src="assets/js/jquery.backstretch.min.js"></script>
       <script src="assets/js/scripts.js"></script>
       <script src="${pageContext.request.contextPath}/boot/js/jquery.validate.min.js"></script>
+      <script src="assets/js/birthcontrolinfo.js"></script>
 
-      <script>
-            $(function () {
-                //怀孕避孕情况
-                $.ajax({
-                    url: "/demographic/contraceptionPregnancy",
-                    type: "post",
-                    dataType: "json",
-                    success: function (data) {
-                        var input = "";
-                        for(var a=0;a<data.length;a++){
-                            input += '<input type="radio" name="' + data[a].nid + '" >'+ data[a].name;
-                        }
-                        $("#e_contraceptionPregnancy").append(input);
-                    }
-                })
-            })
-
-          $("#subForm").submit(){
-                window.location.href="/demographic/birthcontrolinfo";
-            }
-
-      </script>
 </head>
 <body >
 
@@ -58,70 +37,84 @@
             <input type="radio" name="spousePeer"  value="1"> 是
             <input type="radio" name="spousePeer"  value="2"> 否
         </label>
+        <label id="error4"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_maritalProve">婚育证明：</label>
         <label class="-inline" id="e_maritalProve">
             <input type="radio" name="maritalProve"  value="1"> 有
             <input type="radio" name="maritalProve"  value="2"> 无
         </label>
+        <label id="error5"></label>
     </div>
 
     <div class="form-group">
-        <label for="e_maritalCardNumber"  >婚育证编号：<input type="text"   id="e_maritalCardNumber"  >
+        <label for="e_maritalCardNumber"  >婚育证编号：
+            <input type="text"   id="e_maritalCardNumber"  name="maritalCardNumber">
+            <label id="error1"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          是否验证：
         <label class="-inline" id="e_verification">
             <input type="radio" name="verification"  value="1"> 是
             <input type="radio" name="verification"  value="2"> 否
         </label>
+            <label id="error6"></label>
         </label>
     </div>
-    <%--<div class="form-group">
-        <label for="e_unitAddress">生育情况：</label>
-        <input type="hidden" id="e_unitAddress">
+    <div class="form-group">
+        <label >生育情况：</label>
     </div>
 
     <div class="form-group" >
         <label for="e_childrenNumber">生育子女数：</label>
-        男<input type="text" id="man" name="childrenNumber">人
+        男<input type="text" id="e_man" name="man">人  <label id="error7"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        女<input type="text" id="e_childrenNumber" name="childrenNumber">人
+        女<input type="text" id="e_woman" name="woman">人<label id="error8"></label>
+        <input type="hidden" id="e_childrenNumber" name="childrenNumber">
+    </div>
 
+    <div class="form-group" >
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="e_childrenNumber">政策内：</label>
+        <label for="e_policyWithin">政策内：</label>
         <label class="-inline">
-            <input type="radio" name="flatType"  value="1"> 1孩
-            <input type="radio" name="flatType"  value="2"> 2孩
+            <input type="radio" name="policyWithin"  value="1"> 1孩
+            <input type="radio" name="policyWithin"  value="2"> 2孩
         </label>
+        <label id="error9"></label>
+        <input type="hidden" id="e_policyWithin">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label for="e_childrenNumber">政策外：</label>
+        <label for="e_policyBesides">政策外：</label>
         <label class="-inline">
-            <input type="radio" name="flatType"  value="1"> 2孩
-            <input type="radio" name="flatType"  value="2"> 3孩
+            <input type="radio" name="policyBesides"  value="1"> 2孩
+            <input type="radio" name="policyBesides"  value="2"> 3孩
         </label>
+        <label id="error10"></label>
+        <input type="hidden" id="e_policyBesides">
 
-    </div>--%>
+    </div>
     <div class="form-group">
         <label for="e_oneChildCertificate">独生子女证：</label>
         <label class="-inline" id="e_oneChildCertificate">
             <input type="radio" name="oneChildCertificate"  value="1"> 有
             <input type="radio" name="oneChildCertificate"  value="2"> 无
         </label>
+        <label id="error11"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_socialSupportFee">社会抚养费征收：</label>
         <label class="-inline" id="e_socialSupportFee">
             <input type="radio" name="socialSupportFee"  value="1"> 已缴
             <input type="radio" name="socialSupportFee"  value="2"> 未缴
         </label>
+        <label id="error12"></label>
         <input type="hidden" id="e_socialSupportFees">
     </div>
     <div class="form-group" id="a-contraceptionPregnancy">
         <label for="e_contraceptionPregnancy">怀孕避孕情况：</label>
         <label id="e_contraceptionPregnancy"></label>
-
+        <label id="error13"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_measureTime">措施时间：</label>
         <input type="text" id="e_measureTime" name="measureTime">
+        <label id="error2"></label>
     </div>
     <div class="form-group">
         <label for="e_theFertility">当年生育子女：</label>
@@ -129,20 +122,22 @@
             <input type="radio" name="theFertility"  value="1"> 男
             <input type="radio" name="theFertility"  value="2"> 女
         </label>
+        <label id="error14"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        出生日期：<input type="text" name="flatType"  >
+        出生日期：<input type="text" name="birthdate"  id="e_birthdate"><label id="error3"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_policy">政策：</label>
         <label class="-inline" id="e_policy">
             <input type="radio" name="policy"  value="1"> 内
             <input type="radio" name="policy"  value="2"> 外
         </label>
+        <label id="error15"></label>
 
         <input type="hidden" id="e_ginsengIs">
     </div>
 
 
-    <button  class="btn btn-default" >保存</button>
+    <button  class="btn btn-default" onclick="sub()">保存</button>
     <button class="btn btn-default">下一项</button>
 </form>
 

@@ -34,7 +34,7 @@
     delete from birthcontrolinfo
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.ygjy.entity.Birthcontrolinfo">
+    <insert id="insert" parameterType="com.ygjy.entity.Birthcontrolinfo" keyProperty="id" useGeneratedKeys="true">
     insert into birthcontrolinfo (id, spouse_peer, marital_prove, 
       marital_card_number, verification, children_number, 
       one_child_certificate, social_support_fee, 
@@ -42,7 +42,7 @@
       birthdate, policy, gmt_create, 
       gmt_modified, personal_id)
     values (#{id,jdbcType=INTEGER}, #{spousePeer,jdbcType=INTEGER}, #{maritalProve,jdbcType=INTEGER}, 
-      #{maritalCardNumber,jdbcType=VARCHAR}, #{verification,jdbcType=INTEGER}, #{childrenNumber,jdbcType=VARCHAR}, 
+      #{maritalCardNumber,jdbcType=VARCHAR}, #{verification,jdbcType=INTEGER}, #{childrenNumber,jdbcType=VARCHAR},
       #{oneChildCertificate,jdbcType=INTEGER}, #{socialSupportFee,jdbcType=INTEGER}, 
       #{contraceptionPregnancy,jdbcType=VARCHAR}, #{measureTime,jdbcType=VARCHAR}, #{theFertility,jdbcType=INTEGER}, 
       #{birthdate,jdbcType=VARCHAR}, #{policy,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, 

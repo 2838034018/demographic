@@ -55,10 +55,10 @@
                     <td class="active">
                         <select name="city" id="shen">
                             <option  value="0">请选择</option>
-                        </select>省
+                        </select>省<label id="error9"></label>
                         <select name="steet" id="shi">
                             <option  value="0">请选择</option>
-                        </select>市
+                        </select>市<label id="error10"></label>
                         <select name="community" id="xian">
                             <option  value="0">请选择</option>
                         </select>县
@@ -157,7 +157,7 @@
     </div>
 
 
-    <button   class="btn btn-default" onclick="sub()">保存</button>
-    <button  type="submit" class="btn btn-default" onclick="nextJs()">下一项</button>
+    <button  type="button" lass="btn btn-default" onclick="sub()">保存</button>
+    <button  type="button" class="btn btn-default" onclick="nextJs()">下一项</button>
 </form>
 </body>

@@ -162,4 +162,26 @@ public class Birthcontrolinfo {
     public void setPersonalId(Integer personalId) {
         this.personalId = personalId;
     }
+
+    @Override
+    public String toString() {
+        return "Birthcontrolinfo{" +
+                "id=" + id +
+                ", spousePeer=" + spousePeer +
+                ", maritalProve=" + maritalProve +
+                ", maritalCardNumber='" + maritalCardNumber + '\'' +
+                ", verification=" + verification +
+                ", childrenNumber=" + childrenNumber +
+                ", oneChildCertificate=" + oneChildCertificate +
+                ", socialSupportFee=" + socialSupportFee +
+                ", contraceptionPregnancy='" + contraceptionPregnancy + '\'' +
+                ", measureTime='" + measureTime + '\'' +
+                ", theFertility=" + theFertility +
+                ", birthdate='" + birthdate + '\'' +
+                ", policy=" + policy +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", personalId=" + personalId +
+                '}';
+    }
 }

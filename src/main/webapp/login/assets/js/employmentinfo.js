@@ -1,50 +1,55 @@
-var ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false;
+var ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false;
 
 function sub(){
     $("input").trigger("blur");
-   /* if(ok1==true&&ok2==true&&ok3==true&&ok4==true&&ok5==true&&ok6==true&&ok7==true&&ok8==true){
-        alert("校验成功哦");
-        //如果校验没问题，走保存方法
-        $.ajax({
-            url: "/demographic/addEmploymentinfo",
-            type: "post",
-            data:$("#subForm").serialize(),//获取表单中所有的数据,
-            dataType: "json",
-            success:function(data){
-                alert(data.message);
-                if(data.message == "保存成功"){
-                    alert(data.message);
-                    window.location.href="/demographic/login/employmentinfo.jsp";
-                }else {
-                    alert(data.message);
-                }
-            },
-        })
-    }*/
-    $.ajax({
-        url: "/demographic/addEmploymentinfo",
-        type: "post",
-        data:$("#subForm").serialize(),//获取表单中所有的数据,
-        dataType: "json",
-        success: function(data) {
-            console.log(data);
-            alert(data);
-            if (data == true) {
-                alert("没谈就刷新了");
-                alert("保存成功")
-                window.location.href = "/demographic/login/employmentinfo.jsp";
-            } else {
-                alert("保存失败");
+    if(ok1==true&&ok2==true&&ok3==true&&ok4==true&&ok5==true&&ok6==true&&ok7==true&&ok8==true&&ok9==true){
+        var radioName = new Array();
+        $(":radio").each(function(){
+            radioName.push($(this).attr("name"));
+        });
+        $(":checkbox").each(function(){
+            radioName.push($(this).attr("name"));
+        });
+        radioName.sort();
+        $.unique(radioName);
+        $.each(radioName,function(i,val){
+            if(!checkRadio(val)){
+                alert("您还有未选择项，请选择，谢谢~");
+                window.location.href="/demographic/login/employmentinfo.jsp";
+                return false;
+            }else {
+                //如果校验没问题，走保存方法
+                $.ajax({
+                    url: "/demographic/addEmploymentinfo",
+                    type: "post",
+                    data:$("#subForm").serialize(),//获取表单中所有的数据,
+                    dataType: "json",
+                    success:function(data){
+                        if(data ==true){
+                            alert( "保存成功");
+                            window.location.href="/demographic/login/employmentinfo.jsp";
+                        }else {
+                            alert( "保存失败");
+                        }
+                    }
+                })
             }
-        }
-    })
+        });
+    }
 }
+
 
 //跳转到计生页面
 function nextJs(){
     window.location.href = "/demographic/login/birthcontrolinfo.jsp";
 }
-//判断单选是否选中
+
+function checkRadio(radioName){
+    return $("input[name="+radioName+"]:checked").val() == null ? false : true;
+}
+
+
+//校验
 $(function () {
     //校验不能为空
     $("#e_entityName").blur(function () {
@@ -129,25 +134,16 @@ $(function () {
         }
     })
 
-    //触发保存按钮判断是否选中
-    $("#submit").click(function(){
-        var flatType=$('input:radio[name="flatType"]:checked').val();
-        var laborContract= $('input:radio[name="laborContract"]:checked').val();
-        var rank= $('input:radio[name="rank"]:checked').val();
-        var skillLevel= $('input:radio[name="skillLevel"]:checked').val();
-
-        if(flatType==null  ||  laborContract==null  || rank==null ||skillLevel==null  ){
-            alert("要选中欧!");
-            return false;
+    //校验省市县区不能为空
+    $("#shen").blur(function () {
+        var shen=$("#shen option:selected");
+        if(shen.val() == 0){
+            $("#error9").html("请选择所属区域").css("color","red");ok9=false;
+        }else{
+            $("#error9").html("√").css("color","green");ok9=true;
         }
+    })
 
-    });
-
-    //下一步
-    /* $("#subForm").click(function(){
-         var formObj=document.getElementById("subForm");
-         formObj.action="/demographic/login/birthcontrolinfo.jsp";
-     });*/
 
     //查询行业类别
     xxx();

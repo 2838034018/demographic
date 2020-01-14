@@ -92,4 +92,19 @@ public class ChildrenNumber {
     public void setPersonalId(Integer personalId) {
         this.personalId = personalId;
     }
+
+    @Override
+    public String toString() {
+        return "ChildrenNumber{" +
+                "id=" + id +
+                ", man=" + man +
+                ", woman=" + woman +
+                ", policyWithin=" + policyWithin +
+                ", policyBesides=" + policyBesides +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", birthcontrolinfoId=" + birthcontrolinfoId +
+                ", personalId=" + personalId +
+                '}';
+    }
 }
