@@ -50,4 +50,17 @@ public class DataTableController {
         List<DictionaryTable> liveFor = dictionaryTableService.liveFor();
         return liveFor;
     }
+    /**
+     * @Author yuyang
+     * @Description //根据 parentId获取字典表信息
+     * @Date 11:17 2020/1/14
+     * @param parentId
+     * @return java.util.List<com.ygjy.entity.DictionaryTable>
+     **/
+    @RequestMapping("/dictionaryTableList")
+    @ResponseBody
+    public List<DictionaryTable> getDictionaryTableList(String parentId){
+        List<DictionaryTable> dictionaryTableList = dictionaryTableService.getDictionaryTableList(parentId);
+        return dictionaryTableList;
+    }
 }
