@@ -33,7 +33,7 @@ public class Birthcontrolinfo {
 
     private Date gmtModified;
 
-    private Integer personalId;
+    private Integer userId;
 
     public Integer getId() {
         return id;
@@ -155,12 +155,12 @@ public class Birthcontrolinfo {
         this.gmtModified = gmtModified;
     }
 
-    public Integer getPersonalId() {
-        return personalId;
+    public Integer getuserId() {
+        return userId;
     }
 
-    public void setPersonalId(Integer personalId) {
-        this.personalId = personalId;
+    public void setuserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -181,7 +181,7 @@ public class Birthcontrolinfo {
                 ", policy=" + policy +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", personalId=" + personalId +
+                ", userId=" + userId +
                 '}';
     }
 }

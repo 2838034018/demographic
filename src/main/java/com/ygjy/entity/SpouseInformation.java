@@ -31,7 +31,7 @@ public class SpouseInformation {
 
     private Date gmtModified;
 
-    private Integer personalId;
+    private Integer userId;
 
     private Integer workingType;
 
@@ -139,12 +139,12 @@ public class SpouseInformation {
         this.gmtModified = gmtModified;
     }
 
-    public Integer getPersonalId() {
-        return personalId;
+    public Integer getuserId() {
+        return userId;
     }
 
-    public void setPersonalId(Integer personalId) {
-        this.personalId = personalId;
+    public void setuserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getWorkingType() {

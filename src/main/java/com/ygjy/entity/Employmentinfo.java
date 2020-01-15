@@ -59,7 +59,7 @@ public class Employmentinfo {
 
     private Date gmtModified;
 
-    private Integer personalId;
+    private Integer userId;
 
     private String unitNumber;
 
@@ -297,12 +297,12 @@ public class Employmentinfo {
         this.gmtModified = gmtModified;
     }
 
-    public Integer getPersonalId() {
-        return personalId;
+    public Integer getuserId() {
+        return userId;
     }
 
-    public void setPersonalId(Integer personalId) {
-        this.personalId = personalId;
+    public void setuserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getUnitNumber() {
@@ -344,7 +344,7 @@ public class Employmentinfo {
                 ", profession='" + profession + '\'' +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", personalId=" + personalId +
+                ", userId=" + userId +
                 ", unitNumber='" + unitNumber + '\'' +
                 ", message='" + message + '\'' +
                 '}';

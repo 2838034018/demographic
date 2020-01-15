@@ -21,12 +21,12 @@
     <result column="information_collector" jdbcType="VARCHAR" property="informationCollector" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="input_time" jdbcType="TIMESTAMP" property="inputTime" />
-    <result column="personal_id" jdbcType="INTEGER" property="personalId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
   </resultMap>
   <sql id="Base_Column_List">
     id_infomation, living_type, live_for, house_type, area, jie_ban, com_mittee, street_road_alley, 
     house_number, house_address, room_number, land_lord, agent, lessor_situation, housing_types, 
-    usage_house, information_collector, create_time, input_time, personal_id
+    usage_house, information_collector, create_time, input_time, user_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -45,14 +45,14 @@
       house_address, room_number, land_lord, 
       agent, lessor_situation, housing_types, 
       usage_house, information_collector, create_time, 
-      input_time, personal_id)
+      input_time, user_id)
     values (#{idInfomation,jdbcType=INTEGER}, #{livingType,jdbcType=INTEGER}, #{liveFor,jdbcType=INTEGER}, 
       #{houseType,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, #{jieBan,jdbcType=VARCHAR}, 
       #{comMittee,jdbcType=VARCHAR}, #{streetRoadAlley,jdbcType=VARCHAR}, #{houseNumber,jdbcType=INTEGER}, 
       #{houseAddress,jdbcType=VARCHAR}, #{roomNumber,jdbcType=INTEGER}, #{landLord,jdbcType=INTEGER}, 
       #{agent,jdbcType=INTEGER}, #{lessorSituation,jdbcType=VARCHAR}, #{housingTypes,jdbcType=INTEGER}, 
       #{usageHouse,jdbcType=INTEGER}, #{informationCollector,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{inputTime,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+      #{inputTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ygjy.entity.LivingInfomation">
     insert into living_infomation
@@ -114,8 +114,8 @@
       <if test="inputTime != null">
         input_time,
       </if>
-      <if test="personalId != null">
-        personal_id,
+      <if test="userId != null">
+        user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -176,8 +176,8 @@
       <if test="inputTime != null">
         #{inputTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -238,8 +238,8 @@
       <if test="inputTime != null">
         input_time = #{inputTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        personal_id = #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
     </set>
     where id_infomation = #{idInfomation,jdbcType=INTEGER}
@@ -264,7 +264,7 @@
       information_collector = #{informationCollector,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       input_time = #{inputTime,jdbcType=TIMESTAMP},
-      personal_id = #{personalId,jdbcType=INTEGER}
+      user_id = #{userId,jdbcType=INTEGER}
     where id_infomation = #{idInfomation,jdbcType=INTEGER}
   </update>
 
@@ -276,13 +276,13 @@
       house_address, room_number, land_lord,
       agent, lessor_situation, housing_types,
       usage_house, information_collector, create_time,
-      input_time, personal_id)
+      input_time, user_id)
     values (#{idInfomation,jdbcType=INTEGER}, #{livingType,jdbcType=INTEGER}, #{liveFor,jdbcType=INTEGER},
       #{houseType,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, #{jieBan,jdbcType=VARCHAR},
       #{comMittee,jdbcType=VARCHAR}, #{streetRoadAlley,jdbcType=VARCHAR}, #{houseNumber,jdbcType=INTEGER},
       #{houseAddress,jdbcType=VARCHAR}, #{roomNumber,jdbcType=INTEGER}, #{landLord,jdbcType=INTEGER},
       #{agent,jdbcType=INTEGER}, #{lessorSituation,jdbcType=VARCHAR}, #{housingTypes,jdbcType=INTEGER},
       #{usageHouse,jdbcType=INTEGER}, #{informationCollector,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
-      #{inputTime,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+      #{inputTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER})
   </insert>
 </mapper>

@@ -16,11 +16,11 @@
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
-    <result column="personal_id" jdbcType="INTEGER" property="personalId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
   </resultMap>
   <sql id="Base_Column_List">
     id, spouse_name, spouse_num, province, city, district, town, village, site, company_name, 
-    phone, gmt_create, gmt_modified, personal_id
+    phone, gmt_create, gmt_modified, user_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -37,12 +37,12 @@
       province, city, district, 
       town, village, site,working_type,
       company_name, phone, gmt_create, 
-      gmt_modified, personal_id)
+      gmt_modified, user_id)
     values (#{id,jdbcType=INTEGER}, #{spouseName,jdbcType=VARCHAR}, #{spouseNum,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
       #{town,jdbcType=VARCHAR}, #{village,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{workingType,jdbcType=INTEGER},
       #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, now(),
-     now(), #{personalId,jdbcType=INTEGER})
+     now(), #{userId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ygjy.entity.SpouseInformation">
     insert into spouse_information
@@ -86,8 +86,8 @@
       <if test="gmtModified != null">
         gmt_modified,
       </if>
-      <if test="personalId != null">
-        personal_id,
+      <if test="userId != null">
+        user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -130,8 +130,8 @@
       <if test="gmtModified != null">
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -174,8 +174,8 @@
       <if test="gmtModified != null">
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        personal_id = #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -194,7 +194,7 @@
       phone = #{phone,jdbcType=VARCHAR},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      personal_id = #{personalId,jdbcType=INTEGER}
+      user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

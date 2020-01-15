@@ -30,7 +30,7 @@
     <result column="profession" jdbcType="VARCHAR" property="profession" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
-    <result column="personal_id" jdbcType="INTEGER" property="personalId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="unit_number" jdbcType="VARCHAR" property="unitNumber" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -38,7 +38,7 @@
     site, organization_code, legal_person, labor_contract, contact_phone_number, ginseng_is, 
     endowment_insurance, medical_insurance, unemployment_insurance, injury_insurance, 
     maternity_insurance, social_security_num, staff_num, sectors, rank, skill_level, 
-    profession, gmt_create, gmt_modified, personal_id, unit_number
+    profession, gmt_create, gmt_modified, user_id, unit_number
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -60,7 +60,7 @@
       injury_insurance, maternity_insurance, social_security_num, 
       staff_num, sectors, rank, 
       skill_level, profession, gmt_create, 
-      gmt_modified, personal_id, unit_number
+      gmt_modified, user_id, unit_number
       )
     values (#{id,jdbcType=INTEGER}, #{entityName,jdbcType=VARCHAR}, #{flatType,jdbcType=VARCHAR}, 
       #{unitAddress,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{steet,jdbcType=VARCHAR}, 
@@ -71,7 +71,7 @@
       #{injuryInsurance,jdbcType=INTEGER}, #{maternityInsurance,jdbcType=INTEGER}, #{socialSecurityNum,jdbcType=VARCHAR}, 
       #{staffNum,jdbcType=VARCHAR}, #{sectors,jdbcType=VARCHAR}, #{rank,jdbcType=VARCHAR}, 
       #{skillLevel,jdbcType=VARCHAR}, #{profession,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER}, #{unitNumber,jdbcType=VARCHAR}
+      #{gmtModified,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, #{unitNumber,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ygjy.entity.Employmentinfo">
@@ -161,8 +161,8 @@
       <if test="gmtModified != null">
         gmt_modified,
       </if>
-      <if test="personalId != null">
-        personal_id,
+      <if test="userId != null">
+        user_id,
       </if>
       <if test="unitNumber != null">
         unit_number,
@@ -253,8 +253,8 @@
       <if test="gmtModified != null">
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="unitNumber != null">
         #{unitNumber,jdbcType=VARCHAR},
@@ -345,8 +345,8 @@
       <if test="gmtModified != null">
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="personalId != null">
-        personal_id = #{personalId,jdbcType=INTEGER},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
       <if test="unitNumber != null">
         unit_number = #{unitNumber,jdbcType=VARCHAR},
@@ -383,7 +383,7 @@
       profession = #{profession,jdbcType=VARCHAR},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      personal_id = #{personalId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
       unit_number = #{unitNumber,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

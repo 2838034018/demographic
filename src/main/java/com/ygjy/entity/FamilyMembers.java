@@ -26,7 +26,7 @@ public class FamilyMembers {
 
     private Date gmtModified;
 
-    private Integer personalId;
+    private Integer userId;
 
 
 }

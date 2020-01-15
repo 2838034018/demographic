@@ -17,12 +17,12 @@
         <result column="policy" jdbcType="INTEGER" property="policy"/>
         <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
         <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
-        <result column="personal_id" jdbcType="INTEGER" property="personalId"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, spouse_peer, marital_prove, marital_card_number, verification, children_number, 
     one_child_certificate, social_support_fee, contraception_pregnancy, measure_time, 
-    the_fertility, birthdate, policy, gmt_create, gmt_modified, personal_id
+    the_fertility, birthdate, policy, gmt_create, gmt_modified, user_id
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -41,13 +41,13 @@
       one_child_certificate, social_support_fee, 
       contraception_pregnancy, measure_time, the_fertility, 
       birthdate, policy, gmt_create, 
-      gmt_modified, personal_id)
+      gmt_modified, user_id)
     values (#{id,jdbcType=INTEGER}, #{spousePeer,jdbcType=INTEGER}, #{maritalProve,jdbcType=INTEGER}, 
       #{maritalCardNumber,jdbcType=VARCHAR}, #{verification,jdbcType=INTEGER}, #{childrenNumber,jdbcType=VARCHAR},
       #{oneChildCertificate,jdbcType=INTEGER}, #{socialSupportFee,jdbcType=INTEGER}, 
       #{contraceptionPregnancy,jdbcType=VARCHAR}, #{measureTime,jdbcType=VARCHAR}, #{theFertility,jdbcType=INTEGER}, 
       #{birthdate,jdbcType=VARCHAR}, #{policy,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+      #{gmtModified,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.ygjy.entity.Birthcontrolinfo">
         insert into birthcontrolinfo
@@ -97,8 +97,8 @@
             <if test="gmtModified != null">
                 gmt_modified,
             </if>
-            <if test="personalId != null">
-                personal_id,
+            <if test="userId != null">
+                user_id,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -147,8 +147,8 @@
             <if test="gmtModified != null">
                 #{gmtModified,jdbcType=TIMESTAMP},
             </if>
-            <if test="personalId != null">
-                #{personalId,jdbcType=INTEGER},
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -197,8 +197,8 @@
             <if test="gmtModified != null">
                 gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
             </if>
-            <if test="personalId != null">
-                personal_id = #{personalId,jdbcType=INTEGER},
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
@@ -219,7 +219,7 @@
       policy = #{policy,jdbcType=INTEGER},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      personal_id = #{personalId,jdbcType=INTEGER}
+      user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -41,7 +41,7 @@ public class LivingInfomation {
 
     private Date inputTime;
 
-    private Integer personalId;
+    private Integer userId;
 
     public Integer getIdInfomation() {
         return idInfomation;
@@ -195,11 +195,11 @@ public class LivingInfomation {
         this.inputTime = inputTime;
     }
 
-    public Integer getPersonalId() {
-        return personalId;
+    public Integer getuserId() {
+        return userId;
     }
 
-    public void setPersonalId(Integer personalId) {
-        this.personalId = personalId;
+    public void setuserId(Integer userId) {
+        this.userId = userId;
     }
 }
