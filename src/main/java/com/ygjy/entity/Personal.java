@@ -70,6 +70,8 @@ public class Personal {
 
     private Timestamp modifiedTime;
 
+    private String auditor;
+
     private Integer userId;
 
     public Integer getId() {
@@ -334,6 +336,14 @@ public class Personal {
 
     public void setModifiedTime(String modifiedTime) {
         this.modifiedTime = Timestamp.valueOf(modifiedTime);
+    }
+
+    public String getAuditor() {
+        return auditor;
+    }
+
+    public void setAuditor(String auditor) {
+        this.auditor = auditor;
     }
 
     public Integer getUserId() {
