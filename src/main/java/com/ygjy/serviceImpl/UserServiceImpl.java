@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * @param user
-     * @return java.util.List<com.ygjy.entity.LivingInfomation>
+     * @return java.util.List<com.ygjy.entity.User>
      * @Author lyh
-     * @Description 插入居住信息
+     * @Description 登录，注册
      */
     //登录
     @Override
