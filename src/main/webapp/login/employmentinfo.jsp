@@ -30,7 +30,7 @@
 
 
 
-<form   class="text-left" id="subForm" method="post">
+<form   class="text-left" id="subForm" method="post" role="form">
 
     <div class="form-group">
         <label for="e_entityName">用工单位名称：</label>
@@ -158,7 +158,7 @@
     </div>
 
 
-    <button  type="button" lass="btn btn-default" onclick="sub()">保存</button>
-    <button  type="button" class="btn btn-default" onclick="nextJs()">下一项</button>
+    <input  type="button" class="btn btn-default" onclick="sub()">保存</input>
+    <input  type="button" class="btn btn-default" onclick="nextJs()">下一项</input>
 </form>
 </body>
