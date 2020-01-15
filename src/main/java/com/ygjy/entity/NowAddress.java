@@ -15,7 +15,7 @@ public class NowAddress {
 
     private String nowAddressVillage;
 
-    private Integer nowAddressHouseNumber;
+    private String nowAddressHouseNumber;
 
     private Date nowAddressCreateTime;
 
@@ -71,11 +71,11 @@ public class NowAddress {
         this.nowAddressVillage = nowAddressVillage == null ? null : nowAddressVillage.trim();
     }
 
-    public Integer getNowAddressHouseNumber() {
+    public String getNowAddressHouseNumber() {
         return nowAddressHouseNumber;
     }
 
-    public void setNowAddressHouseNumber(Integer nowAddressHouseNumber) {
+    public void setNowAddressHouseNumber(String nowAddressHouseNumber) {
         this.nowAddressHouseNumber = nowAddressHouseNumber;
     }
 

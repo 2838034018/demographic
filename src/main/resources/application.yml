@@ -19,6 +19,12 @@ spring:
     url: jdbc:mysql://192.168.43.180:3306/db_demographic?useUnicode=true&characterEncoding=utf-8&useSSL=false
   jackson:
     date-format: yyyy-MM-dd
+  #上传文件大小设置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.ygjy.entity
@@ -31,3 +37,7 @@ pagehelper:
   params: count=countSql
   page-size-zero: true
 
+#上传路径
+file:
+  staticAccessPath: /upload/**
+  uploadFolder: E:/upload/

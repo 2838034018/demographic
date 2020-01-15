@@ -16,6 +16,7 @@ import java.util.List;
 public class DataTableController {
     @Autowired
     private RegionService regionService;
+
     @Autowired
     private DictionaryTableService dictionaryTableService;
 

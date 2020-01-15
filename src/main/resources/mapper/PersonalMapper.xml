@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="old_name" jdbcType="VARCHAR" property="oldName" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
-    <result column="come_date" jdbcType="TIMESTAMP" property="comeDate" />
+    <result column="come_date" jdbcType="DATE" property="comeDate" />
     <result column="id_card" jdbcType="VARCHAR" property="idCard" />
     <result column="head_img" jdbcType="VARCHAR" property="headImg" />
     <result column="nation" jdbcType="VARCHAR" property="nation" />
@@ -24,8 +24,8 @@
     <result column="cultrue" jdbcType="VARCHAR" property="cultrue" />
     <result column="politics_status" jdbcType="VARCHAR" property="politicsStatus" />
     <result column="faith" jdbcType="VARCHAR" property="faith" />
-    <result column="height" jdbcType="DECIMAL" property="height" />
-    <result column="weight" jdbcType="DECIMAL" property="weight" />
+    <result column="height" jdbcType="DOUBLE" property="height" />
+    <result column="weight" jdbcType="DOUBLE" property="weight" />
     <result column="blood" jdbcType="VARCHAR" property="blood" />
     <result column="backg_round" jdbcType="VARCHAR" property="backgRound" />
     <result column="health_type" jdbcType="VARCHAR" property="healthType" />
@@ -55,31 +55,20 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ygjy.entity.Personal">
-    insert into personal (id, name, old_name, 
-      sex, come_date, id_card, 
-      head_img, nation, province, 
-      city, district, town, 
-      villager, now_address, fixed_phone, 
-      move_phone, concats, concats_fixphone, 
-      concats_movphone, cultrue, politics_status, 
-      faith, height, weight, 
-      blood, backg_round, health_type, 
-      disability, marital_status, status, 
-      explain, create_time, modified_time, 
-      user_id)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{oldName,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=INTEGER}, #{comeDate,jdbcType=TIMESTAMP}, #{idCard,jdbcType=VARCHAR}, 
-      #{headImg,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{town,jdbcType=VARCHAR}, 
-      #{villager,jdbcType=VARCHAR}, #{nowAddress,jdbcType=VARCHAR}, #{fixedPhone,jdbcType=VARCHAR}, 
-      #{movePhone,jdbcType=VARCHAR}, #{concats,jdbcType=VARCHAR}, #{concatsFixphone,jdbcType=VARCHAR}, 
-      #{concatsMovphone,jdbcType=VARCHAR}, #{cultrue,jdbcType=VARCHAR}, #{politicsStatus,jdbcType=VARCHAR}, 
-      #{faith,jdbcType=VARCHAR}, #{height,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, 
-      #{blood,jdbcType=VARCHAR}, #{backgRound,jdbcType=VARCHAR}, #{healthType,jdbcType=VARCHAR}, 
-      #{disability,jdbcType=VARCHAR}, #{maritalStatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{explain,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifiedTime,jdbcType=TIMESTAMP}, 
-      #{userId,jdbcType=INTEGER})
+    INSERT INTO `db_demographic`.`personal`(`id`, `name`, `old_name`, `sex`, `come_date`,
+    `id_card`, `head_img`, `nation`, `province`, `city`, `district`, `town`, `villager`,
+    `now_address`, `fixed_phone`, `move_phone`, `concats`, `concats_fixphone`, `concats_movphone`,
+    `cultrue`, `politics_status`, `faith`, `height`, `weight`, `blood`, `backg_round`,
+    `health_type`, `disability`, `marital_status`, `status`, `explain`, `create_time`,
+    `modified_time`, `user_id`)
+    VALUES (default , #{name}, #{oldName}, #{sex}, #{comeDate}, #{idCard}, #{headImg},
+    #{nation}, #{province}, #{city}, #{district}, #{town}, #{villager},
+    #{nowAddress}, #{fixedPhone}, #{movePhone}, #{concats}, #{concatsFixphone}, #{concatsMovphone},
+    #{cultrue}, #{politicsStatus}, #{faith}, #{height}, #{weight}, #{blood}, #{backgRound},
+    #{healthType}, #{disability}, #{maritalStatus}, #{status}, #{explain}, #{createTime},
+    #{modifiedTime}, #{userId});
   </insert>
+
   <insert id="insertSelective" parameterType="com.ygjy.entity.Personal">
     insert into personal
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -254,10 +243,10 @@
         #{faith,jdbcType=VARCHAR},
       </if>
       <if test="height != null">
-        #{height,jdbcType=DECIMAL},
+        #{height,jdbcType=DOUBLE},
       </if>
       <if test="weight != null">
-        #{weight,jdbcType=DECIMAL},
+        #{weight,jdbcType=DOUBLE},
       </if>
       <if test="blood != null">
         #{blood,jdbcType=VARCHAR},
@@ -304,7 +293,7 @@
         sex = #{sex,jdbcType=INTEGER},
       </if>
       <if test="comeDate != null">
-        come_date = #{comeDate,jdbcType=TIMESTAMP},
+        come_date = #{comeDate,jdbcType=DATE},
       </if>
       <if test="idCard != null">
         id_card = #{idCard,jdbcType=VARCHAR},
@@ -358,10 +347,10 @@
         faith = #{faith,jdbcType=VARCHAR},
       </if>
       <if test="height != null">
-        height = #{height,jdbcType=DECIMAL},
+        height = #{height,jdbcType=DOUBLE},
       </if>
       <if test="weight != null">
-        weight = #{weight,jdbcType=DECIMAL},
+        weight = #{weight,jdbcType=DOUBLE},
       </if>
       <if test="blood != null">
         blood = #{blood,jdbcType=VARCHAR},
@@ -401,7 +390,7 @@
     set name = #{name,jdbcType=VARCHAR},
       old_name = #{oldName,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},
-      come_date = #{comeDate,jdbcType=TIMESTAMP},
+      come_date = #{comeDate,jdbcType=DATE},
       id_card = #{idCard,jdbcType=VARCHAR},
       head_img = #{headImg,jdbcType=VARCHAR},
       nation = #{nation,jdbcType=VARCHAR},
@@ -419,8 +408,8 @@
       cultrue = #{cultrue,jdbcType=VARCHAR},
       politics_status = #{politicsStatus,jdbcType=VARCHAR},
       faith = #{faith,jdbcType=VARCHAR},
-      height = #{height,jdbcType=DECIMAL},
-      weight = #{weight,jdbcType=DECIMAL},
+      height = #{height,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
       blood = #{blood,jdbcType=VARCHAR},
       backg_round = #{backgRound,jdbcType=VARCHAR},
       health_type = #{healthType,jdbcType=VARCHAR},
@@ -433,4 +422,116 @@
       user_id = #{userId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <!--根据个人信息查询个人信息id-->
+  <select id="getPersonalId" parameterType="Personal" resultType="Integer">
+    select id from personal
+    <where>
+        <if test="name != null">
+          and name = #{name}
+        </if>
+        <if test="oldName != null">
+          and old_name = #{oldName}
+        </if>
+        <if test="sex != null">
+          and sex = #{sex}
+        </if>
+        <if test="comeDate != null">
+          and come_date = #{comeDate}
+        </if>
+        <if test="idCard != null">
+          and id_card = #{idCard}
+        </if>
+        <if test="headImg != null">
+          and head_img = #{headImg}
+        </if>
+        <if test="nation != null">
+          and nation = #{nation}
+        </if>
+        <if test="province != null">
+          and province = #{province}
+        </if>
+        <if test="city != null">
+          and city = #{city}
+        </if>
+        <if test="district != null">
+          and district =#{district}
+        </if>
+        <if test="town != null">
+          and town = #{town}
+        </if>
+        <if test="villager != null">
+          and villager = #{villager}
+        </if>
+        <if test="nowAddress != null">
+          and now_address = #{nowAddress}
+        </if>
+        <if test="fixedPhone != null">
+          and fixed_phone = #{fixedPhone}
+        </if>
+        <if test="movePhone != null">
+          and move_phone = #{movePhone}
+        </if>
+        <if test="concats != null">
+          and concats = #{concats}
+        </if>
+        <if test="concatsFixphone != null">
+          and concats_fixphone = #{concatsFixphone}
+        </if>
+        <if test="concatsMovphone != null">
+          and concats_movphone = #{concatsMovphone}
+        </if>
+        <if test="cultrue != null">
+          and cultrue = #{cultrue}
+        </if>
+        <if test="politicsStatus != null">
+          and politics_status = #{politicsStatus}
+        </if>
+        <if test="faith != null">
+          and faith = #{faith}
+        </if>
+        <if test="height!= null">
+          and height = #{height}
+        </if>
+        <if test="weight != null">
+          and weight = #{weight}
+        </if>
+        <if test="blood != null">
+          and blood = #{blood}
+        </if>
+        <if test="backgRound != null">
+          and backg_round = #{backgRound}
+        </if>
+        <if test="healthType != null">
+          and health_type = #{healthType}
+        </if>
+        <if test="disability != null">
+          and disability = #{disability}
+        </if>
+        <if test="maritalStatus !=null">
+          and marital_status = #{maritalStatus}
+        </if>
+        <if test="status != null">
+          and status = #{status}
+        </if>
+        <if test="explain != null">
+          and explain = #{explain}
+        </if>
+        <if test="createTime != null">
+          and create_time = #{createTime}
+        </if>
+        <if test="modifiedTime!= null">
+          and modified_time = #{modifiedTime}
+        </if>
+        <if test="userId != null">
+          and user_id = #{userId}
+        </if>
+    </where>
+    limit 1
+  </select>
+
+  <!--根据pesonalId获取个人信息-->
+  <select id="getPersaonal" parameterType="Integer" resultMap="BaseResultMap">
+    select * from personal where id = #{personalId}
+  </select>
 </mapper>

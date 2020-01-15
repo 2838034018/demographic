@@ -8,7 +8,7 @@
     <result column="now_address_district" jdbcType="VARCHAR" property="nowAddressDistrict" />
     <result column="now_address_town" jdbcType="VARCHAR" property="nowAddressTown" />
     <result column="now_address_village" jdbcType="VARCHAR" property="nowAddressVillage" />
-    <result column="now_address_house_number" jdbcType="INTEGER" property="nowAddressHouseNumber" />
+    <result column="now_address_house_number" jdbcType="VARCHAR" property="nowAddressHouseNumber" />
     <result column="now_address_create_time" jdbcType="DATE" property="nowAddressCreateTime" />
     <result column="now_address_modifie_time" jdbcType="DATE" property="nowAddressModifieTime" />
     <result column="now_address_personal_id" jdbcType="INTEGER" property="nowAddressPersonalId" />
@@ -34,9 +34,9 @@
       now_address_house_number, now_address_create_time, 
       now_address_modifie_time, now_address_personal_id
       )
-    values (#{id,jdbcType=INTEGER}, #{nowAddressProvince,jdbcType=VARCHAR}, #{nowAddressCity,jdbcType=VARCHAR}, 
+    values (default , #{nowAddressProvince,jdbcType=VARCHAR}, #{nowAddressCity,jdbcType=VARCHAR},
       #{nowAddressDistrict,jdbcType=VARCHAR}, #{nowAddressTown,jdbcType=VARCHAR}, #{nowAddressVillage,jdbcType=VARCHAR}, 
-      #{nowAddressHouseNumber,jdbcType=INTEGER}, #{nowAddressCreateTime,jdbcType=DATE}, 
+      #{nowAddressHouseNumber,jdbcType=VARCHAR}, #{nowAddressCreateTime,jdbcType=DATE},
       #{nowAddressModifieTime,jdbcType=DATE}, #{nowAddressPersonalId,jdbcType=INTEGER}
       )
   </insert>
@@ -94,7 +94,7 @@
         #{nowAddressVillage,jdbcType=VARCHAR},
       </if>
       <if test="nowAddressHouseNumber != null">
-        #{nowAddressHouseNumber,jdbcType=INTEGER},
+        #{nowAddressHouseNumber,jdbcType=VARCHAR},
       </if>
       <if test="nowAddressCreateTime != null">
         #{nowAddressCreateTime,jdbcType=DATE},
@@ -126,7 +126,7 @@
         now_address_village = #{nowAddressVillage,jdbcType=VARCHAR},
       </if>
       <if test="nowAddressHouseNumber != null">
-        now_address_house_number = #{nowAddressHouseNumber,jdbcType=INTEGER},
+        now_address_house_number = #{nowAddressHouseNumber,jdbcType=VARCHAR},
       </if>
       <if test="nowAddressCreateTime != null">
         now_address_create_time = #{nowAddressCreateTime,jdbcType=DATE},
@@ -147,10 +147,17 @@
       now_address_district = #{nowAddressDistrict,jdbcType=VARCHAR},
       now_address_town = #{nowAddressTown,jdbcType=VARCHAR},
       now_address_village = #{nowAddressVillage,jdbcType=VARCHAR},
-      now_address_house_number = #{nowAddressHouseNumber,jdbcType=INTEGER},
+      now_address_house_number = #{nowAddressHouseNumber,jdbcType=VARCHAR},
       now_address_create_time = #{nowAddressCreateTime,jdbcType=DATE},
       now_address_modifie_time = #{nowAddressModifieTime,jdbcType=DATE},
       now_address_personal_id = #{nowAddressPersonalId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--根据personalId获取现居住住址信息-->
+  <select id="getNowAddress" parameterType="Integer" resultMap="BaseResultMap">
+    select id,now_address_province,now_address_city,now_address_district,now_address_town,now_address_village,
+    now_address_house_number,now_address_create_time,now_address_modifie_time,now_address_personal_id from now_address
+    where now_address_personal_id = #{personalId}
+  </select>
 </mapper>

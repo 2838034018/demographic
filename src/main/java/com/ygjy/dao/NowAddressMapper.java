@@ -14,4 +14,12 @@ public interface NowAddressMapper {
     int updateByPrimaryKeySelective(NowAddress record);
 
     int updateByPrimaryKey(NowAddress record);
+    /**
+     * @Author yuyang
+     * @Description //根据personalid获取现居住住址信息
+     * @Date 17:01 2020/1/14
+     * @param personalId
+     * @return com.ygjy.entity.NowAddress
+     **/
+    NowAddress getNowAddress(Integer personalId);
 }

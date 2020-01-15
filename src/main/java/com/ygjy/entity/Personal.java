@@ -1,5 +1,6 @@
 package com.ygjy.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Personal {
@@ -47,9 +48,9 @@ public class Personal {
 
     private String faith;
 
-    private Long height;
+    private Double height;
 
-    private Long weight;
+    private Double weight;
 
     private String blood;
 
@@ -65,9 +66,9 @@ public class Personal {
 
     private String explain;
 
-    private Date createTime;
+    private Timestamp createTime;
 
-    private Date modifiedTime;
+    private Timestamp modifiedTime;
 
     private Integer userId;
 
@@ -247,19 +248,19 @@ public class Personal {
         this.faith = faith == null ? null : faith.trim();
     }
 
-    public Long getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(Long height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
-    public Long getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
@@ -323,16 +324,16 @@ public class Personal {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = Timestamp.valueOf(createTime);
     }
 
     public Date getModifiedTime() {
         return modifiedTime;
     }
 
-    public void setModifiedTime(Date modifiedTime) {
-        this.modifiedTime = modifiedTime;
+    public void setModifiedTime(String modifiedTime) {
+        this.modifiedTime = Timestamp.valueOf(modifiedTime);
     }
 
     public Integer getUserId() {
