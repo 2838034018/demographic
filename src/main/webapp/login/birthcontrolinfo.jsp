@@ -138,7 +138,7 @@
 
 
     <button  class="btn btn-default" onclick="sub()">保存</button>
-    <button class="btn btn-default">下一项</button>
+    <button class="btn btn-default"  onclick="next()">下一项</button>
 </form>
 
 

@@ -1,4 +1,7 @@
 var ok1=false,ok2=false,ok3=false,ok4=false,ok5=false,ok6=false,ok7=false,ok8=false,ok9=false,ok10=false,ok11=false,ok12=false,ok13=false,ok14=false,ok15=false;
+function next() {
+    window.location.href="/demographic/login/birthcontrolinfo.jsp";
+}
 function sub(){
     //保存计生信息
     $("input").trigger("blur");

@@ -40,9 +40,9 @@ function sub(){
 }
 
 
-//跳转到计生页面
+//就业跳居住页面
 function nextJs(){
-    window.location.href = "/demographic/login/birthcontrolinfo.jsp";
+    window.location.href = "/demographic/login/living_information.jsp";
 }
 
 function checkRadio(radioName){
