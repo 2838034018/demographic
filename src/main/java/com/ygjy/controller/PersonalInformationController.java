@@ -220,6 +220,8 @@ public class PersonalInformationController {
 
     /**
      * @param livingInformation
+     * @param landlord
+     * @param agent
      * @return java.util.List<com.ygjy.entity.LivingInfomation>
      * @Author lyh
      * @Description 插入居住信息

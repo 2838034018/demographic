@@ -28,6 +28,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RegionService regionService;
 
+    /**
+     * @param user
+     * @return java.util.List<com.ygjy.entity.LivingInfomation>
+     * @Author lyh
+     * @Description 插入居住信息
+     */
     //登录
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)

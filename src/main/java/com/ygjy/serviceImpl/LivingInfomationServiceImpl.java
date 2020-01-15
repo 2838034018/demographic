@@ -29,6 +29,14 @@ public class LivingInfomationServiceImpl implements LivingInfomationService {
     @Autowired
     private HttpSession session;
 
+    /**
+     * @param livingInformation
+     * @param landlord
+     * @param agent
+     * @return java.util.List<com.ygjy.entity.LivingInfomation>
+     * @Author lyh
+     * @Description //插入居住信息，房东信息，代理人信息
+     **/
     @Override
     public void insertDwell(LivingInfomation livingInformation, Landlord landlord, Agent agent) {
 
@@ -43,10 +51,13 @@ public class LivingInfomationServiceImpl implements LivingInfomationService {
 
             agent.setGmtCreate(new Date());//创建时间
             agent.setGmtModified(new Date());//更新时间
-            agentMapper.insterAgent(agent);
-            landlordMapper.insterLandlord(landlord);
             livingInfomationMapper.insertDwell(livingInformation);
 
+            LivingInfomation idInfomation = livingInfomationMapper.getIdInfomation(livingInformation);
+            agent.setLivingInformationId(idInfomation.getIdInfomation());
+            agentMapper.insterAgent(agent);
+            landlord.setLivingInformationId(idInfomation.getIdInfomation());
+            landlordMapper.insterLandlord(landlord);
             LOGGER.info("LivingInfomationServiceImpl-------insertDwell---成功");
         } catch (Exception e) {
             e.printStackTrace();

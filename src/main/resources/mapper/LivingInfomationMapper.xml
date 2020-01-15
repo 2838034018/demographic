@@ -285,4 +285,69 @@
       #{usageHouse,jdbcType=INTEGER}, #{informationCollector,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
       #{inputTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER})
   </insert>
+  <select id="getIdInfomation" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select id_infomation from living_infomation
+    <where>
+      <if test="idInfomation != null">
+        and id_infomation=#{idInfomation}
+      </if>
+      <if test="livingType != null">
+        and living_type=#{livingType}
+      </if>
+      <if test="liveFor != null">
+        and live_for=#{liveFor}
+      </if>
+      <if test="houseType != null">
+        and house_type=#{houseType}
+      </if>
+      <if test="area != null">
+        and area=#{area}
+      </if>
+      <if test="jieBan != null">
+        and jie_ban=#{jieBan}
+      </if>
+      <if test="comMittee != null">
+        and com_mittee=#{comMittee}
+      </if>
+      <if test="streetRoadAlley != null">
+        and street_road_alley=#{streetRoadAlley}
+      </if>
+      <if test="houseNumber != null">
+        and house_number=#{houseNumber}
+      </if>
+      <if test="houseAddress != null">
+        and house_address=#{houseAddress}
+      </if>
+      <if test="roomNumber != null">
+        and room_number=#{roomNumber}
+      </if>
+      <if test="landLord != null">
+        and land_lord=#{landLord}
+      </if>
+      <if test="agent != null">
+        and agent=#{agent}
+      </if>
+      <if test="lessorSituation != null">
+        and lessor_situation=#{lessorSituation}
+      </if>
+      <if test="housingTypes != null">
+        and housing_types=#{housingTypes}
+      </if>
+      <if test="usageHouse != null">
+        and usage_house=#{usageHouse}
+      </if>
+      <if test="informationCollector != null">
+        and information_collector=#{informationCollector}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime}
+      </if>
+      <if test="inputTime != null">
+        and input_time=#{inputTime}
+      </if>
+      <if test="userId != null">
+        and user_id=#{userId}
+      </if>
+    </where>
+  </select>
 </mapper>
