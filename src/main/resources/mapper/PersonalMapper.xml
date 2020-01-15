@@ -31,7 +31,7 @@
     <result column="health_type" jdbcType="VARCHAR" property="healthType" />
     <result column="disability" jdbcType="VARCHAR" property="disability" />
     <result column="marital_status" jdbcType="VARCHAR" property="maritalStatus" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="explain" jdbcType="VARCHAR" property="explain" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
@@ -264,7 +264,7 @@
         #{maritalStatus,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        #{status,jdbcType=VARCHAR},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="explain != null">
         #{explain,jdbcType=VARCHAR},
@@ -368,7 +368,7 @@
         marital_status = #{maritalStatus,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="explain != null">
         explain = #{explain,jdbcType=VARCHAR},
@@ -415,7 +415,7 @@
       health_type = #{healthType,jdbcType=VARCHAR},
       disability = #{disability,jdbcType=VARCHAR},
       marital_status = #{maritalStatus,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
       explain = #{explain,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       modified_time = #{modifiedTime,jdbcType=TIMESTAMP},

@@ -62,7 +62,7 @@ public class Personal {
 
     private String maritalStatus;
 
-    private String status;
+    private Integer status;
 
     private String explain;
 
@@ -304,12 +304,12 @@ public class Personal {
         this.maritalStatus = maritalStatus == null ? null : maritalStatus.trim();
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setStatus(Integer status) {
+        this.status = status == null ? null : status;
     }
 
     public String getExplain() {

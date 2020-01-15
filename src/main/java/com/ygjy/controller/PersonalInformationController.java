@@ -207,9 +207,10 @@ public class PersonalInformationController {
                 return "请选择婚姻状况！";
             }
             pinformation.personalDo(personal, nowAddress, multipartFile);
+            LOGGER.info("PersonalInformationController.personalDo-个人信息添加成功");
             return "ok";
         }catch (Exception e){
-            System.out.println(e);
+            LOGGER.error("PersonalInformationController.personalDo-"+e);
             return "no";
         }
 

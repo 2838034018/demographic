@@ -39,7 +39,7 @@
     values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{companyName,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
       #{district,jdbcType=VARCHAR}, #{town,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{explain,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{explain,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP},
       #{gmtModified,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ygjy.entity.User">
@@ -114,7 +114,7 @@
         #{identity,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        #{status,jdbcType=VARCHAR},
+        #{status,jdbcType=INTEGER},
       </if>
       <if test="explain != null">
         #{explain,jdbcType=VARCHAR},
@@ -155,7 +155,7 @@
         identity = #{identity,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="explain != null">
         explain = #{explain,jdbcType=VARCHAR},
@@ -179,7 +179,7 @@
       district = #{district,jdbcType=VARCHAR},
       town = #{town,jdbcType=VARCHAR},
       identity = #{identity,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
       explain = #{explain,jdbcType=VARCHAR},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
@@ -188,7 +188,7 @@
 
   <!--用户登录-->
   <select id="login" resultMap="BaseResultMap">
-        select id,phone,password from user where phone=#{phone} and `status` = '0'
+        select id,phone,password from user where phone=#{phone} and `status` = 1
     </select>
   <!--用户注册-->
     <insert id="insertRegister" parameterType="com.ygjy.entity.User">

@@ -80,23 +80,37 @@ public class PersonalInformationServiceImpl implements PersonalInformationServic
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         personal.setCreateTime(dateFormat.format(new Date()));
         personal.setHeadImg(file.getPath());
+        personal.setStatus(0);
         //添加用户个人信息ileUploadUtil.getImgPa
-        Integer num = personalMapper.insert(personal);
-        if(num == 1){
-            //根据个人信息获取个人信息id
-            Integer personalId = personalMapper.getPersonalId(personal);
-            nowAddress.setNowAddressPersonalId(personalId);
-            nowAddress.setNowAddressCreateTime(new Date());
-            int nowAddressNum = nowAddressMapper.insert(nowAddress);
-            if(nowAddressNum != 1){
-                fileUploadUtil.delFolder(file.getPath());
-                personalMapper.deleteByPrimaryKey(personalId);
-                throw  new RuntimeException("个人信息现居住地址添加失败");
+        try {
+            Integer num = personalMapper.insert(personal);
+            if(num == 1){
+                //根据个人信息获取个人信息id
+                Integer personalId = personalMapper.getPersonalId(personal);
+                nowAddress.setNowAddressPersonalId(personalId);
+                nowAddress.setNowAddressCreateTime(new Date());
+                try {
+                    int nowAddressNum = nowAddressMapper.insert(nowAddress);
+                    if(nowAddressNum != 1){
+                        //失败回滚
+                        personalMapper.deleteByPrimaryKey(personalId);
+                        throw  new RuntimeException("个人信息现居住地址添加失败");
+                    }
+                }catch (Exception e){
+                    //失败回滚
+                    personalMapper.deleteByPrimaryKey(personalId);
+                    throw  new RuntimeException("个人信息现居住地址添加失败");
+                }
+            }else {
+                //个人信息添加失败回滚
+                throw new RuntimeException("个人信息添加失败");
             }
-        }else {
+        }catch (Exception e){
+            //个人信息添加失败回滚
             fileUploadUtil.delFolder(file.getPath());
             throw new RuntimeException("个人信息添加失败");
         }
+
     }
 
     @Override
