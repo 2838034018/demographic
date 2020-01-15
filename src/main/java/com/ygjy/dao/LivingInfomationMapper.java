@@ -14,4 +14,6 @@ public interface LivingInfomationMapper {
     int updateByPrimaryKeySelective(LivingInfomation record);
 
     int updateByPrimaryKey(LivingInfomation record);
+
+    void insertDwell(LivingInfomation livingInformation);
 }

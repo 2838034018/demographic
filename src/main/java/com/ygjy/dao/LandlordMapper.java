@@ -14,4 +14,6 @@ public interface LandlordMapper {
     int updateByPrimaryKeySelective(Landlord record);
 
     int updateByPrimaryKey(Landlord record);
+
+    void insterLandlord(Landlord landlord);
 }

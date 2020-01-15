@@ -9,12 +9,6 @@ import java.util.List;
  * @Date 11:09 2020/1/14
  **/
 public interface DictionaryTableService {
-    //查询居住方式
-    List<DictionaryTable> livingType();
-
-    //查询居住事由
-    List<DictionaryTable> liveFor();
-
     /**
      * @Author yuyang
      * @Description //根据parentId获取字典表集合

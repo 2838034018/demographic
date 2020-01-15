@@ -19,15 +19,6 @@ public class DictionaryTableServiceImpl implements DictionaryTableService {
     @Autowired
     private DictionaryTableMapper dictionaryTableMapper;
 
-    @Override
-    public List<DictionaryTable> livingType() {
-        return dictionaryTableMapper.livingType();
-    }
-
-    @Override
-    public List<DictionaryTable> liveFor() {
-        return dictionaryTableMapper.liveFor();
-    }
     /**
      * @Author yuyang
      * @Description //根据 parentId获取字典表集合

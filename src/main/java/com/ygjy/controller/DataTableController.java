@@ -35,21 +35,6 @@ public class DataTableController {
         return by;
     }
 
-    //查询居住方式
-    @RequestMapping("livingType")
-    @ResponseBody
-    public List<DictionaryTable> livingType() {
-        List<DictionaryTable> livingType = dictionaryTableService.livingType();
-        return livingType;
-    }
-
-    //查询居住事由
-    @RequestMapping("liveFor")
-    @ResponseBody
-    public List<DictionaryTable> liveFor() {
-        List<DictionaryTable> liveFor = dictionaryTableService.liveFor();
-        return liveFor;
-    }
     /**
      * @Author yuyang
      * @Description //根据 parentId获取字典表信息

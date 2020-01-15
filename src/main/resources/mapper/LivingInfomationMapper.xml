@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ygjy.dao.LivingInfomationMapper">
-  <resultMap id="BaseResultMap" type="com.ygjy.entity.LivingInfomation">
+    <resultMap id="BaseResultMap" type="com.ygjy.entity.LivingInfomation">
     <id column="id_infomation" jdbcType="INTEGER" property="idInfomation" />
     <result column="living_type" jdbcType="INTEGER" property="livingType" />
     <result column="live_for" jdbcType="INTEGER" property="liveFor" />
     <result column="house_type" jdbcType="INTEGER" property="houseType" />
     <result column="area" jdbcType="VARCHAR" property="area" />
-    <result column="jie_ban" jdbcType="VARCHAR" property="jieBan" />
+        <result column="jie_ban" jdbcType="VARCHAR" property="jieBan" />
     <result column="com_mittee" jdbcType="VARCHAR" property="comMittee" />
     <result column="street_road_alley" jdbcType="VARCHAR" property="streetRoadAlley" />
     <result column="house_number" jdbcType="INTEGER" property="houseNumber" />
     <result column="house_address" jdbcType="VARCHAR" property="houseAddress" />
-    <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
+        <result column="room_number" jdbcType="INTEGER" property="roomNumber" />
     <result column="land_lord" jdbcType="INTEGER" property="landLord" />
     <result column="agent" jdbcType="INTEGER" property="agent" />
     <result column="lessor_situation" jdbcType="VARCHAR" property="lessorSituation" />
@@ -267,4 +267,22 @@
       personal_id = #{personalId,jdbcType=INTEGER}
     where id_infomation = #{idInfomation,jdbcType=INTEGER}
   </update>
+
+    <!--添加居住信息-->
+    <insert id="insertDwell" parameterType="com.ygjy.entity.LivingInfomation">
+    insert into living_infomation (id_infomation, living_type, live_for,
+      house_type, area, jie_ban,
+      com_mittee, street_road_alley, house_number,
+      house_address, room_number, land_lord,
+      agent, lessor_situation, housing_types,
+      usage_house, information_collector, create_time,
+      input_time, personal_id)
+    values (#{idInfomation,jdbcType=INTEGER}, #{livingType,jdbcType=INTEGER}, #{liveFor,jdbcType=INTEGER},
+      #{houseType,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, #{jieBan,jdbcType=VARCHAR},
+      #{comMittee,jdbcType=VARCHAR}, #{streetRoadAlley,jdbcType=VARCHAR}, #{houseNumber,jdbcType=INTEGER},
+      #{houseAddress,jdbcType=VARCHAR}, #{roomNumber,jdbcType=INTEGER}, #{landLord,jdbcType=INTEGER},
+      #{agent,jdbcType=INTEGER}, #{lessorSituation,jdbcType=VARCHAR}, #{housingTypes,jdbcType=INTEGER},
+      #{usageHouse,jdbcType=INTEGER}, #{informationCollector,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{inputTime,jdbcType=TIMESTAMP}, #{personalId,jdbcType=INTEGER})
+  </insert>
 </mapper>

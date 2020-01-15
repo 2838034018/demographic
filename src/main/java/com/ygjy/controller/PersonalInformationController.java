@@ -1,18 +1,16 @@
 package com.ygjy.controller;
 
-import com.ygjy.entity.FamilyMembers;
-import com.ygjy.entity.SpouseInformation;
+import com.ygjy.entity.*;
+import com.ygjy.service.LivingInfomationService;
 import com.ygjy.service.PersonalInformationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 
-@RestController
+@Controller
 @RequestMapping("/persion")
 public class PersonalInformationController {
 
@@ -20,6 +18,8 @@ public class PersonalInformationController {
 
     @Autowired
     private PersonalInformationService pinformation;
+    @Autowired
+    private LivingInfomationService livingInfomationService;
 
     /*插入配偶信息
      */
@@ -61,5 +61,17 @@ public class PersonalInformationController {
             e.printStackTrace();
             return false;
         }
+    }
+
+    /**
+     * @param livingInformation
+     * @return java.util.List<com.ygjy.entity.LivingInfomation>
+     * @Author lyh
+     * @Description 插入居住信息
+     */
+    @RequestMapping("insertDwell")
+    public String insertDwell(LivingInfomation livingInformation, Landlord landlord, Agent agent) {
+        livingInfomationService.insertDwell(livingInformation, landlord, agent);
+        return "login/living_information";
     }
 }

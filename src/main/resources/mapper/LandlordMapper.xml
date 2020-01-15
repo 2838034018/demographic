@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ygjy.dao.LandlordMapper">
   <resultMap id="BaseResultMap" type="com.ygjy.entity.Landlord">
-    <id column="id" jdbcType="INTEGER" property="id" />
+      <id column="id" jdbcType="INTEGER" property="id" />
     <result column="land_lord" jdbcType="VARCHAR" property="landLord" />
     <result column="land_phone" jdbcType="VARCHAR" property="landPhone" />
-    <result column="is_security" jdbcType="INTEGER" property="isSecurity" />
+      <result column="is_security" jdbcType="INTEGER" property="isSecurity" />
     <result column="land_id_card" jdbcType="VARCHAR" property="landIdCard" />
     <result column="gmt_create" jdbcType="DATE" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="DATE" property="gmtModified" />
@@ -26,12 +26,13 @@
     delete from landlord
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.ygjy.entity.Landlord">
-    insert into landlord (id, land_lord, land_phone, 
+    insert into landlord (id, land_lord, land_phone,
       is_security, land_id_card, gmt_create, 
       gmt_modified, living_information_id, personal_id
       )
-    values (#{id,jdbcType=INTEGER}, #{landLord,jdbcType=VARCHAR}, #{landPhone,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{landLord,jdbcType=VARCHAR}, #{landPhone,jdbcType=VARCHAR},
       #{isSecurity,jdbcType=INTEGER}, #{landIdCard,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=DATE}, 
       #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{personalId,jdbcType=INTEGER}
       )
@@ -139,4 +140,15 @@
       personal_id = #{personalId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <!--插入房东信息-->
+    <insert id="insterLandlord" parameterType="com.ygjy.entity.Landlord">
+    insert into landlord (id, land_lord, land_phone,
+      is_security, land_id_card, gmt_create,
+      gmt_modified, living_information_id, personal_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{landLord,jdbcType=VARCHAR}, #{landPhone,jdbcType=VARCHAR},
+      #{isSecurity,jdbcType=INTEGER}, #{landIdCard,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=DATE},
+      #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{personalId,jdbcType=INTEGER}
+      )
+  </insert>
 </mapper>

@@ -14,4 +14,6 @@ public interface AgentMapper {
     int updateByPrimaryKeySelective(Agent record);
 
     int updateByPrimaryKey(Agent record);
+
+    void insterAgent(Agent agent);
 }

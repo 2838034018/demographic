@@ -139,4 +139,15 @@
       presonal_id = #{presonalId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <insert id="insterAgent" parameterType="com.ygjy.entity.Agent">
+    insert into agent (id, agent_name, agent_phone,
+      is_security, agent_id_card, gmt_create,
+      gmt_modified, living_information_id, presonal_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{agentName,jdbcType=VARCHAR}, #{agentPhone,jdbcType=VARCHAR},
+      #{isSecurity,jdbcType=INTEGER}, #{agentIdCard,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=DATE},
+      #{gmtModified,jdbcType=DATE}, #{livingInformationId,jdbcType=INTEGER}, #{presonalId,jdbcType=INTEGER}
+      )
+  </insert>
 </mapper>
