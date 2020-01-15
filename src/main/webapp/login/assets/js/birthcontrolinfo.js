@@ -22,7 +22,7 @@ function sub(){
                 return false;
             }else {
                 $.ajax({
-                    url: "/demographic/birthcontrolinfo",
+                    url: "/demographic/personal/birthcontrolinfo",
                     type: "post",
                     data: $("#subForm").serialize(),//获取表单中所有的数据,
                     dataType: "json",
@@ -46,7 +46,7 @@ function checkRadio(radioName){
 $(function () {
     //怀孕避孕情况
     $.ajax({
-        url: "/demographic/contraceptionPregnancy",
+        url: "/demographic/personal/contraceptionPregnancy",
         type: "post",
         dataType: "json",
         success: function (data) {

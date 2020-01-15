@@ -21,7 +21,7 @@ function sub(){
             }else {
                 //如果校验没问题，走保存方法
                 $.ajax({
-                    url: "/demographic/addEmploymentinfo",
+                    url: "/demographic/personal/addEmploymentinfo",
                     type: "post",
                     data:$("#subForm").serialize(),//获取表单中所有的数据,
                     dataType: "json",
@@ -152,7 +152,7 @@ $(function () {
 
 function xxx() {
     $.ajax({
-        url: "/demographic/employmentinfo",
+        url: "/demographic/personal/employmentinfo",
         type: "post",
         dataType: "json",
         success: function (data) {

@@ -24,7 +24,6 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping("/personal")
-
 public class PersonalInformationController {
 
     public static final Logger LOGGER = Logger.getLogger("PersonalInformationController.class");
@@ -242,7 +241,7 @@ public class PersonalInformationController {
      * @Return
      * @Exception
      */
-    @RequestMapping("employmentinfo")
+    @RequestMapping("/employmentinfo")
     @ResponseBody
     public List<DictionaryTable> Employmentinfo(){
 
@@ -258,7 +257,7 @@ public class PersonalInformationController {
      * @Return
      * @Exception
      */
-    @RequestMapping(value = "addEmploymentinfo",method = RequestMethod.POST)
+    @RequestMapping(value = "/addEmploymentinfo",method = RequestMethod.POST)
     @ResponseBody
     public Boolean addEmploymentinfo(Employmentinfo employmentinfo){
         int i=employmentinfoService.addEmploymentinfo(employmentinfo);
@@ -278,7 +277,7 @@ public class PersonalInformationController {
      * @Exception
      *
      */
-    @RequestMapping("contraceptionPregnancy")
+    @RequestMapping("/contraceptionPregnancy")
     @ResponseBody
     public List<DictionaryTable> contraceptionPregnancy(){
         List<DictionaryTable> contraceptionPregnancy=employmentinfoService.contraceptionPregnancy();
@@ -294,7 +293,7 @@ public class PersonalInformationController {
      * @Exception
      *
      */
-    @RequestMapping("birthcontrolinfo")
+    @RequestMapping("/birthcontrolinfo")
     @ResponseBody
     public boolean  birthcontrolinfo (Birthcontrolinfo birthcontrolinfo, ChildrenNumber childrenNumber){
 
@@ -318,4 +317,5 @@ public class PersonalInformationController {
         }
 
     }
+
 }
