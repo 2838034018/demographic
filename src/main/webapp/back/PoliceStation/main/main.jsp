@@ -20,6 +20,8 @@
     <script src="${pageContext.request.contextPath}/jqgrid/js/trirand/src/jquery.jqGrid.js"></script>
     <%--引入jqgridg国际化js--%>
     <script src="${pageContext.request.contextPath}/jqgrid/js/trirand/i18n/grid.locale-cn.js"></script>
+    <script src="../echarts/echarts.min.js"></script>
+    <script src="../echarts/china.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -105,7 +107,7 @@
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <a href="javascript:$('#lay-right').load('album.jsp')">统计列表</a>
+                            <a href="javascript:$('#lay-right').load('echartsMap.jsp')">统计列表</a>
                         </div>
                     </div>
                 </div>
@@ -113,10 +115,7 @@
         </div>
 
         <div class="col-sm-10" id="lay-right">
-            <div class="jumbotron">
-                <%-- <h4></h4>--%>
-            </div>
-            <%--<img src="${app}/img/shouye.jpg">--%>
+            <%--<img src="${pageContext.request.contextPath}/img/">--%>
         </div>
         <!--模态框-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
