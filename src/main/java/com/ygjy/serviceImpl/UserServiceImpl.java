@@ -76,6 +76,7 @@ public class UserServiceImpl implements UserService {
         user.setDistrict(district.getName());//县区
         Region town = regionService.findByAl(user.getTown());
         user.setTown(town.getName());//镇
+        user.setIdentity("群众");
         user.setStatus(0);
         user.setGmtCreate(new Date());//插入创建时间
         user.setGmtModified(new Date());//插入更新时间

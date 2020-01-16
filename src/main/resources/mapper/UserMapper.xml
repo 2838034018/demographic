@@ -188,7 +188,7 @@
 
   <!--用户登录-->
   <select id="login" resultMap="BaseResultMap">
-        select id,phone,password from user where phone=#{phone} and `status` = 1
+        select id,phone,password from user where phone=#{phone} and `status` = 1 and `identity` = '群众'
     </select>
   <!--用户注册-->
     <insert id="insertRegister" parameterType="com.ygjy.entity.User">
