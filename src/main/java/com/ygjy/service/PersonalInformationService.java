@@ -1,17 +1,12 @@
 package com.ygjy.service;
 
-import com.ygjy.entity.Agent;
-import com.ygjy.entity.NowAddress;
-import com.ygjy.entity.Personal;
+import com.ygjy.entity.*;
 import org.springframework.web.multipart.MultipartFile;
 /**
  * @Author PersonalInformationService
  * @Description //个人信息service接口
  * @Date 9:07 2020/1/11
  **/
-import com.ygjy.entity.FamilyMembers;
-import com.ygjy.entity.Region;
-import com.ygjy.entity.SpouseInformation;
 
 import java.util.List;
 

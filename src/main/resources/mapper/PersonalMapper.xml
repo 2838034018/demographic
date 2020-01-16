@@ -548,4 +548,35 @@
   <select id="getPersaonal" parameterType="Integer" resultMap="BaseResultMap">
     select * from personal where id = #{personalId}
   </select>
+
+  <!--登记信息审核查询-->
+  <select id="getPersonalExt" parameterType="User" resultMap="personalExtMap">
+    select personal.id, personal.name,personal.fixed_phone, personal.move_phone, personal.status,
+    personal.explain, personal.create_time, personal.auditor, personal.user_id, user.phone, user.password,
+    user.company_name, user.identity from personal inner join user on personal.user_id = user.id
+    <where>
+      <if test="companyName != null">
+        and user.company_name like "%"#{companyName}"%"
+      </if>
+      and user.identity = #{identity}
+      and personal.status != 2
+    </where>
+    order by personal.id desc
+  </select>
+
+  <resultMap id="personalExtMap" type="com.ygjy.entity.PersonalExt">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="fixed_phone" jdbcType="VARCHAR" property="fixedPhone" />
+    <result column="move_phone" jdbcType="VARCHAR" property="movePhone" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="explain" jdbcType="VARCHAR" property="explain" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+  </resultMap>
 </mapper>

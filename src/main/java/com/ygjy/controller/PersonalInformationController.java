@@ -1,6 +1,10 @@
 package com.ygjy.controller;
 
 
+import com.ygjy.entity.FamilyMembers;
+import com.ygjy.entity.SpouseInformation;
+import com.ygjy.entity.NowAddress;
+import com.ygjy.entity.Personal;
 import com.ygjy.entity.*;
 import com.ygjy.service.EmploymentinfoService;
 import com.ygjy.service.LivingInfomationService;
@@ -219,8 +223,6 @@ public class PersonalInformationController {
 
     /**
      * @param livingInformation
-     * @param landlord
-     * @param agent
      * @return java.util.List<com.ygjy.entity.LivingInfomation>
      * @Author lyh
      * @Description 插入居住信息
@@ -230,92 +232,4 @@ public class PersonalInformationController {
         livingInfomationService.insertDwell(livingInformation, landlord, agent);
         return "login/living_information";
     }
-
-
-
-    /**
-     * @Description  查询行业类别
-     * @Author  wangyongxin
-     * @Date   2020/1/11 15:46
-     * @Param
-     * @Return
-     * @Exception
-     */
-    @RequestMapping("/employmentinfo")
-    @ResponseBody
-    public List<DictionaryTable> Employmentinfo(){
-
-        List<DictionaryTable> sectors=employmentinfoService.findSectors();
-        return  sectors;
-    }
-
-    /**
-     * @Description  添加就业信息
-     * @Author  wangyongxin
-     * @Date   2020/1/11 15:47
-     * @Param
-     * @Return
-     * @Exception
-     */
-    @RequestMapping(value = "/addEmploymentinfo",method = RequestMethod.POST)
-    @ResponseBody
-    public Boolean addEmploymentinfo(Employmentinfo employmentinfo){
-        int i=employmentinfoService.addEmploymentinfo(employmentinfo);
-        if(i==1){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    /**
-     * @Description  怀孕避孕情况
-     * @Author  wangyongxin
-     * @Date   2020/1/14 15:47
-     * @Param
-     * @Return
-     * @Exception
-     *
-     */
-    @RequestMapping("/contraceptionPregnancy")
-    @ResponseBody
-    public List<DictionaryTable> contraceptionPregnancy(){
-        List<DictionaryTable> contraceptionPregnancy=employmentinfoService.contraceptionPregnancy();
-        return  contraceptionPregnancy;
-    }
-
-    /**
-     * @Description  保存计生信息
-     * @Author  wangyongxin
-     * @Date   2020/1/14 15:47
-     * @Param
-     * @Return
-     * @Exception
-     *
-     */
-    @RequestMapping("/birthcontrolinfo")
-    @ResponseBody
-    public boolean  birthcontrolinfo (Birthcontrolinfo birthcontrolinfo, ChildrenNumber childrenNumber){
-
-        try {
-            //添加计生基本信息
-            int i=employmentinfoService.birthcontrolinfo(birthcontrolinfo);
-            //添加生育子女数信息
-            childrenNumber.setBirthcontrolinfoId(birthcontrolinfo.getId());
-            int j=employmentinfoService.childrenNumbers(childrenNumber);
-
-            if(i==1 && j==1){
-                LOGGER.info("计生信息添加成功！");
-                return  true;
-            }else{
-                LOGGER.info("计生信息添加失败~");
-                return  false;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            return  false;
-        }
-
-    }
-
 }

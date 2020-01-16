@@ -1,12 +1,8 @@
 package com.ygjy.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
 import com.ygjy.dao.*;
-import com.ygjy.entity.Agent;
-import com.ygjy.entity.NowAddress;
-import com.ygjy.entity.Personal;
-import com.ygjy.entity.FamilyMembers;
-import com.ygjy.entity.Region;
-import com.ygjy.entity.SpouseInformation;
+import com.ygjy.entity.*;
 import com.ygjy.service.PersonalInformationService;
 import com.ygjy.util.FileUploadUtil;
 import org.springframework.stereotype.Service;
@@ -117,6 +113,5 @@ public class PersonalInformationServiceImpl implements PersonalInformationServic
     public void addFamilyMenory(FamilyMembers familyMembers) {
         familyMembersMapper.addFamilyMenory(familyMembers);
     }
-
 
 }
