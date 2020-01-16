@@ -156,9 +156,7 @@
         <input type="text" id="e_profession"  name="profession">
         <label id="error8"></label>
     </div>
-
-
-    <input  type="button" class="btn btn-default" onclick="sub()">保存</input>
-    <input  type="button" class="btn btn-default" onclick="nextJs()">下一项</input>
 </form>
+<button   class="btn btn-default" onclick="sub()">保存</button>
+<button  class="btn btn-default" onclick="nextJs()">下一项</button>
 </body>

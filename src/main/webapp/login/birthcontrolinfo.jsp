@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page isELIgnored="false" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -84,8 +85,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="e_policyBesides">政策外：</label>
         <label class="-inline">
-            <input type="radio" name="policyBesides"  value="1"> 2孩
-            <input type="radio" name="policyBesides"  value="2"> 3孩
+            <input type="radio" name="policyBesides"  value="1"> 0孩
+            <input type="radio" name="policyBesides"  value="2"> 1孩
+            <input type="radio" name="policyBesides"  value="2"> 2孩
         </label>
         <label id="error10"></label>
         <input type="hidden" id="e_policyBesides">
@@ -137,10 +139,14 @@
     </div>
 
 
-    <button  class="btn btn-default" onclick="sub()">保存</button>
-    <button class="btn btn-default"  onclick="next()">下一项</button>
-</form>
 
+</form>
+<button  class="btn btn-default" onclick="sub()">保存</button>
+<button class="btn btn-default"  onclick="next()">下一项</button>
 
 
 </body>
+<script >
+
+</script>
+</html>
